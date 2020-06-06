@@ -1,8 +1,11 @@
+*DISCLAIMER*: This project is for educational purposes only, no materials/files are intended for any commercial use. In this document all sources will be credited.
+
 # Milestone 2 - Battle
 
-One or two paragraphs providing an overview of your project.
+The milestone 2 project will be a webpage to showcase content I learned to develop in the second part of the Code Institute's Full stack developer bootcamp. It mainly concerns Javascript and JQuery.
 
-Essentially, this part is your sales pitch.
+Since I have been a gamer for most of my life, I intended to build a simple game in a fantasy setting. Since I am under strict time constraints I need to work fast, but I also want to create something nice and appealing. So it is a bit of a balancing act. To have it running along smoothly I will be using the MoSCoW technique to make sure I am not adding to much unnecessary content. More information on this technique can be found [here](https://en.wikipedia.org/wiki/MoSCoW_method#:~:text=The%20MoSCoW%20method%20is%20a,MoSCoW%20prioritization%20or%20MoSCoW%20analysis).
+
  
 ## UX
  
