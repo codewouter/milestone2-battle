@@ -1,6 +1,12 @@
+.mainBody {
+    background-image: url("/assets/images/mordorportrait.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .upperSection {
     height: 40vh;
-    border: 3px dotted violet;
+    /* border: 3px dotted violet; */
 }
 
 .middleSection {
@@ -19,10 +25,10 @@
     font-style: italic;
     border: 3px solid purple;
     height: 20%;
+    background-color: white;
 }
 
 .enemyBox {
-    border: 2px solid red;
     max-height: 80%;
 }
 
@@ -30,32 +36,28 @@
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
     font-weight: bold;
-    /* border: 1px dotted green; */
     text-align: center;
-    height:20%
+    height:20%;
+    background-color: white;
+}
+
+.enemyImageHolder {
+    height: 80%;
+    width: 100%;
+    text-align: center;
 }
 
 .enemyImage {
     max-width: 100%;
-    max-height: 80%;
-    border: 2px dotted blue;
-}
-
-.statsRow {
-    background-color: lightgreen;
+    max-height: 100%;
 }
 
 .statIndicator {
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
     font-weight: bold;
-    border: 1px solid black;
     text-align: center; 
-    height: 50%
+    height: 50%;
+    background-color: white;
 }
-
-/* .attackIndicator {
-    background-color: lightblue;
-    height: 50%
-} */
 
