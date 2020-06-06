@@ -1,0 +1,24 @@
+.mainHeader {
+    font-family: 'Lucida Sans', sans-serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    border: 3px solid purple;
+    height: 10vh;
+}
+
+.enemyBox {
+    border: 2px solid red;
+}
+
+.orcEntry {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border: 1px dotted green;
+}
+
+.enemyImage {
+    width: 100%;
+    height: auto;
+}
+

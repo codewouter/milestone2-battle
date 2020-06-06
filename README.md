@@ -6,15 +6,53 @@ The milestone 2 project will be a webpage to showcase content I learned to devel
 
 Since I have been a gamer for most of my life, I intended to build a simple game in a fantasy setting. Since I am under strict time constraints I need to work fast, but I also want to create something nice and appealing. So it is a bit of a balancing act. To have it running along smoothly I will be using the MoSCoW technique to make sure I am not adding to much unnecessary content. More information on this technique can be found [here](https://en.wikipedia.org/wiki/MoSCoW_method#:~:text=The%20MoSCoW%20method%20is%20a,MoSCoW%20prioritization%20or%20MoSCoW%20analysis).
 
- 
 ## UX
  
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+User stories:
 
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
-- As a user type, I want to perform an action, so that I can achieve a goal.
+As a fantasy fan, I want to see a fantasy theme.
+As a rpg gamer, I want to clearly see some rpg statistics.
+As a gamer with a taste for fighting games I want to be able to use different attacks.
+As a gamer with a taste for fighting games I want to be able to see my attacks do damage and receive it.
+As a gamer I want to be able to create different challenges.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+This will be a simple fanstasy game with some rpg/fighting mechanics. It should appeal to a certain gamer audience.
+As mentioned in the introduction, this is the priority list for the project following MoSCoW:
+Must have:
+* Fantasy theme
+* Hero display with picture
+* Enemies display with picture.
+* Attack button and/or way to select which enemy to target
+* Visible hit point (HP) stat and a dynamic that enemy dies when it reaches 0.
+* Win or lose condition and a way to display it
+* Animation of a hit or miss on the enemy/hero
+
+
+Should have:
+* Choice of number of enemies.
+* Second 'special' attack (multiattack)
+* Visible round number
+* Log of last few events (attacks, misses, deaths, etc)
+* Reset button to start over.
+* Hit chance.
+
+
+Could have:
+* Selection of different enemy types
+* Selection of different hero types
+* Attack/defense stats 
+* Hit chance depending on attack/defense
+* Damage dealt as a formula of attack/defense
+
+Will not have, but maybe in future implementation:
+* Respawning enemies
+* Leveling/experience system 
+* Equipment and loot drops
+* Too many others too mention.
+
+### Mockups
+Wireframes can be viewed within the project structure in /mockups/ms2-mockups.pdf. 
+!! Make alternative link through github as an url
 
 ## Features
 
