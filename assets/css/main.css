@@ -10,15 +10,26 @@
     border: 2px solid red;
 }
 
-.orcEntry {
+.selectBox {
     font-family: 'Poppins', sans-serif;
     font-size: 1.25rem;
     font-weight: bold;
     border: 1px dotted green;
+    text-align: center;
 }
 
 .enemyImage {
     width: 100%;
     height: auto;
+    border: 2px dotted blue;
+}
+
+.statisticsCard {
+    border: 1px solid green;
+    height:;
+}
+
+.hpIndicator {
+    border: 1px solid black;
 }
 

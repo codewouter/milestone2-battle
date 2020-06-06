@@ -1,5 +1,5 @@
 let orc = {
-    race:"orc"
-    currentHP: 15;
-    maxHP: 30;
+    race:"orc",
+    currentHP: 15,
+    maxHP: 30
 }

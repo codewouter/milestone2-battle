@@ -15,6 +15,7 @@ As a rpg gamer, I want to clearly see some rpg statistics.
 As a gamer with a taste for fighting games I want to be able to use different attacks.
 As a gamer with a taste for fighting games I want to be able to see my attacks do damage and receive it.
 As a gamer I want to be able to create different challenges.
+As a user I want to be able to play this game on different devices, like a phone, tablet or PC.
 
 This will be a simple fanstasy game with some rpg/fighting mechanics. It should appeal to a certain gamer audience.
 As mentioned in the introduction, this is the priority list for the project following MoSCoW:
