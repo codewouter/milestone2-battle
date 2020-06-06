@@ -1,35 +1,61 @@
+.upperSection {
+    height: 40vh;
+    border: 3px dotted violet;
+}
+
+.middleSection {
+    height: 20vh;
+    border: 3px dotted turquoise;
+}
+
+.lowerSection {
+    height:40vh;
+    border: 3px dotted yellow;
+}
+
 .mainHeader {
     font-family: 'Lucida Sans', sans-serif;
     font-size: 1.25rem;
     font-style: italic;
     border: 3px solid purple;
-    height: 10vh;
+    height: 20%;
 }
 
 .enemyBox {
     border: 2px solid red;
+    max-height: 80%;
 }
 
 .selectBox {
     font-family: 'Poppins', sans-serif;
-    font-size: 1.25rem;
+    font-size: 4vmin;
     font-weight: bold;
-    border: 1px dotted green;
+    /* border: 1px dotted green; */
     text-align: center;
+    height:20%
 }
 
 .enemyImage {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+    max-height: 80%;
     border: 2px dotted blue;
 }
 
-.statisticsCard {
-    border: 1px solid green;
-    height:;
+.statsRow {
+    background-color: lightgreen;
 }
 
-.hpIndicator {
+.statIndicator {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vmin;
+    font-weight: bold;
     border: 1px solid black;
+    text-align: center; 
+    height: 50%
 }
+
+/* .attackIndicator {
+    background-color: lightblue;
+    height: 50%
+} */
 
