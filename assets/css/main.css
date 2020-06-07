@@ -11,11 +11,9 @@
 }
 .middleSection {
     height: 20vh;
-    border: 3px dotted turquoise;
 }
 .lowerSection {
-    height:40vh;
-    border: 3px dotted yellow;
+    height: 40vh;
 }
 
 /* css targeting uppersection parts */
@@ -23,7 +21,6 @@
     font-family: 'Lucida Sans', sans-serif;
     font-size: 1.25rem;
     font-style: italic;
-    border: 3px solid purple;
     height: 20%;
     background-color: white;
     text-align: center;
@@ -51,21 +48,50 @@
 }
 .statIndicator {
     font-family: 'Poppins', sans-serif;
-    font-size: 4vmin;
+    font-size: 3vmin;
     font-weight: bold;
     text-align: center; 
-    height: 50%;
+    height: 25%;
     background-color: white;
 }
-/* css targeting?? */
+/* css targeting middleSection*/
+.attackButton {
+}
 
+/* css targeting lowerSection*/
 
+.statBox {
+    height: 60%;
+}
+
+.heroBox {
+    height: 60%;
+    text-align: center;
+}
+
+.imgAragorn {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.battleLog {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vmin;
+    font-weight: bold;
+    text-align: center;
+    background-color: white;
+    height: 40%;
+    border: 2px solid blue;
+}
 
 /* media queries */
 /* in the upperSection, the enemy box height needs to be halved (to 40%) because the third enemy will be below the other 2. In bigger viewports (from 'sm'on up, it can be the maximum 80% */
 @media (min-width: 540px) {
     .enemyBox {
         max-height: 80%;
+    }
+    .statBox, .heroBox, .battleLog{
+        height: 100%;
     }
 }
 

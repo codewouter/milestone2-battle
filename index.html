@@ -14,7 +14,7 @@
             <!-- Uppersection containing display of numbers of rounds played, enemies and statistics of enemies. Takes up 40% of screenheight -->
             <section class="upperSection">
                 <div class="row justify-content-center h-100"> 
-                    <div class="col-12 mainHeader h-20">Round: 3</div> 
+                    <div class="col-12 mainHeader">Round: 3</div> 
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
                             <div class="col-8 h-100"> <!-- selection + enemyPic-->
@@ -23,10 +23,11 @@
                                     <img class="enemyImage rounded-circle" src="./assets/images/orc.jpg" alt="">
                                 </div>
                             </div>
-                            <div class="col-4 statisticsCard h-100"><!-- stats box -->
-                                <div class="row h-100 statIndicator">
-                                    <div class="col-12">HP: 10</div>
-                                    <div class="col-12">Att: 15</div>
+                            <div class="col-4 h-100"><!-- stats box -->
+                                <div class="row h-100">
+                                    <div class="col-12 h-25"></div>
+                                    <div class="col-12 statIndicator">HP: 10</div>
+                                    <div class="col-12 statIndicator">Att: 15</div>
                                 </div>
                             </div>
                          </div>
@@ -39,10 +40,11 @@
                                     <img class="enemyImage rounded-circle" src="./assets/images/orc.jpg" alt="">
                                 </div>
                             </div>
-                            <div class="col-4 statisticsCard h-100"><!-- stats box -->
-                                <div class="row h-100 statIndicator">
-                                    <div class="col-12">HP: 10</div>
-                                    <div class="col-12">Att: 15</div>
+                            <div class="col-4 h-100"><!-- stats box -->
+                                <div class="row h-100">
+                                    <div class="col-12 h-25"></div>
+                                    <div class="col-12 statIndicator">HP: 10</div>
+                                    <div class="col-12 statIndicator">Att: 15</div>
                                 </div>
                             </div>
                         </div>
@@ -55,19 +57,40 @@
                                     <img class="enemyImage rounded-circle" src="./assets/images/orc.jpg" alt="">
                                 </div>
                             </div>
-                            <div class="col-4 statisticsCard h-100"><!-- stats box -->
-                                <div class="row h-100 statIndicator">
-                                    <div class="col-12">HP: 10</div>
-                                    <div class="col-12">Att: 15</div>
+                            <div class="col-4 h-100"><!-- stats box -->
+                                <div class="row h-100">
+                                    <div class="col-12 h-25"></div>
+                                    <div class="col-12 statIndicator">HP: 10</div>
+                                    <div class="col-12 statIndicator">Att: 15</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                  </div>
             </section>
+            <!-- Middlesection contain the attack button(s) and give a bit of air between the hero and enemies. Takes up 20% of screenheight -->
             <section class="middleSection">
+                <div class="row justify-content-center align-items-center h-100">
+                    <!-- Stock bootstrap danger button -->
+                    <button type="button" class="btn btn-danger attackButton">Attack!</button>
+                </div>
             </section>
+            <!-- Lowersection containing the hero statistics, avatar and battlelog. Takes up 40% of screenheight -->
             <section class="lowerSection">
+                <div class="row h-100">
+                    <div class="col-6 col-sm-3 statBox">
+                        <div class="col-12 h-25"></div>
+                        <div class="col-12 statIndicator h-25 align-self-center">HP: 10</div>
+                        <div class="col-12 statIndicator h-25 align-self-center">Att: 15</div>
+                    </div>
+                    <div class="col-6 col-sm-3 heroBox">
+                        <img class="imgAragorn rounded-circle" src="./assets/images/aragorn.jpg" alt="">
+                    </div>  
+                    <div class="col-12 col-sm-6 battleLog">
+                        You hit orc for jadda jadda points!<br>
+                        Orc tickles you<br>
+                    </div>                      
+                </div>
             </section>
         </div>
         <!-- <script type="text/javascript" src="./assets/js/main.js"></script> -->
