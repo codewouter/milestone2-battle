@@ -23,12 +23,14 @@ $("#enemyThree").html(orc.race);
 $("#enemyThreeMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyThreeCurrentHP").html("Current HP: " + orc.currentHP);
 
+// Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
 // https://bradleyhamilton.com/projects/shake/index.html 
 function shake(thing) {
   var interval = 100;
   var distance = 10;
   var times = 6;
+  console.log('shake!');
 
   for (var i = 0; i < (times + 1); i++) {
     $(thing).animate({
@@ -42,15 +44,35 @@ function shake(thing) {
   }, interval);
 }
 
-function attack () {
-    shake($('#enemyOneImage'));
-    orc.currentHP -= 10;
-    console.log('attack!');
-    $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
+function attack (target) {
+    if (target == 1) {
+        shake($('#enemyOneImage'));
+        console.log('attack 1');
+    } else if (target == 2) {
+        shake($('#enemyTwoImage'));
+        console.log('attack 2');
+    } else {
+        shake($('#enemyThreeImage'));
+        console.log('attack 3');
+    }
+    // orc.currentHP -= 10;
+    // $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
 }
 
 $("#attackButton").click(function() {
-    attack();
+    console.log('attack clicked');
+    $('#enemyOneImage').click(function() {
+        console.log('E1 clicked');
+        attack(1);
+    })
+    $('#enemyTwoImage').click(function() {
+        console.log('E2 clicked');
+        attack(2);
+    })
+    $('#enemyThreeImage').click(function() {
+        console.log('E3 clicked');
+        attack(3);
+    })
 })
 
 
