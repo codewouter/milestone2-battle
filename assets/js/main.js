@@ -1,5 +1,13 @@
 let orc = {
-    race:"orc",
+    race:"Orc",
+    maxHP: 30,
     currentHP: 15,
-    maxHP: 30
+    attackDamage: 10
 }
+
+let hero = {
+    maxHP: 50,
+    currentHP: 50,
+    attackDamage: 20
+}
+
