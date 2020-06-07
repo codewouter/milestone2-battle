@@ -4,21 +4,21 @@
     background-size: cover;
 }
 
+/* main sections */
 .upperSection {
     height: 40vh;
     /* border: 3px dotted violet; */
 }
-
 .middleSection {
     height: 20vh;
     border: 3px dotted turquoise;
 }
-
 .lowerSection {
     height:40vh;
     border: 3px dotted yellow;
 }
 
+/* css targeting uppersection parts */
 .mainHeader {
     font-family: 'Lucida Sans', sans-serif;
     font-size: 1.25rem;
@@ -28,11 +28,9 @@
     background-color: white;
     text-align: center;
 }
-
 .enemyBox {
     max-height: 40%;
 }
-
 .selectBox {
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
@@ -41,7 +39,6 @@
     height:20%;
     background-color: white;
 }
-
 .enemyImageHolder {
     height: 80%;
     width: 100%;
@@ -52,7 +49,6 @@
     max-width: 100%;
     max-height: 100%;
 }
-
 .statIndicator {
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
@@ -61,4 +57,16 @@
     height: 50%;
     background-color: white;
 }
+/* css targeting?? */
+
+
+
+/* media queries */
+/* in the upperSection, the enemy box height needs to be halved (to 40%) because the third enemy will be below the other 2. In bigger viewports (from 'sm'on up, it can be the maximum 80% */
+@media (min-width: 540px) {
+    .enemyBox {
+        max-height: 80%;
+    }
+}
+
 
