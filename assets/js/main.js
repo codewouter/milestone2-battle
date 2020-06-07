@@ -1,7 +1,7 @@
 var orc = {
     race:"Orc",
     maxHP: 30,
-    currentHP: 15,
+    currentHP: 30,
     attackDamage: 10
 }
 
@@ -22,4 +22,20 @@ $("#enemyTwoCurrentHP").html("Current HP: " + orc.currentHP);
 $("#enemyThree").html(orc.race);
 $("#enemyThreeMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyThreeCurrentHP").html("Current HP: " + orc.currentHP);
+
+function attack () {
+    orc.currentHP -= 10;
+    console.log('attack!');
+$("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
+}
+
+$("#attackButton").click(function() {
+    attack();
+})
+
+
+
+
+
+
 
