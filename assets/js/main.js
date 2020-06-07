@@ -11,3 +11,9 @@ let hero = {
     attackDamage: 20
 }
 
+let name = $("#enemyOne").html();
+console.log(name);
+$("#enemyOne").html(orc.race);
+$("#enemyOneMaxHP").html("MHP: " + orc.maxHP);
+$("#enemyOneCurrentHP").html("CHP: " + orc.currentHP);
+
