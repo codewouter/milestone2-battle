@@ -45,6 +45,7 @@
 .enemyImage {
     max-width: 100%;
     max-height: 100%;
+    position:relative;
 }
 .statIndicator {
     font-family: 'Poppins', sans-serif;
