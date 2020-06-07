@@ -1,5 +1,5 @@
 .mainBody {
-    background-image: url("/assets/images/mordorportrait.jpg");
+    background-image: url("../images/mordorportrait.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
