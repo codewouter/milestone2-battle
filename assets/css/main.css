@@ -48,10 +48,9 @@
 }
 .statIndicator {
     font-family: 'Poppins', sans-serif;
-    font-size: 3vmin;
+    font-size: 2vmin;
     font-weight: bold;
     text-align: center; 
-    height: 25%;
     background-color: white;
 }
 /* css targeting middleSection*/
@@ -62,6 +61,13 @@
 
 .statBox {
     height: 60%;
+}
+.heroStatIndicator {
+    font-family: 'Poppins', sans-serif;
+    font-size: 4vmin;
+    font-weight: bold;
+    text-align: center; 
+    background-color: white;
 }
 
 .heroBox {
