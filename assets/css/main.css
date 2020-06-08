@@ -60,20 +60,25 @@
 
 /* css targeting lowerSection*/
 
-.statBox {
+.heroStatBox {
     height: 60%;
+    justify-content: stretch;
 }
 .heroStatIndicator {
+    display: flex;
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
     font-weight: bold;
-    text-align: center; 
+    align-items:center;
+    justify-content:center;
     background-color: white;
 }
 
-.heroBox {
+.heroImageBox {
     height: 60%;
-    text-align: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .imgAragorn {
@@ -97,7 +102,7 @@
     .enemyBox {
         max-height: 80%;
     }
-    .statBox, .heroBox, .battleLog{
+    .heroStatBox, .heroImageBox, .battleLog{
         height: 100%;
     }
 }
