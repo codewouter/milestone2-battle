@@ -28,8 +28,8 @@ var enemyThree = {
 }
 
 var hero = {
-    maxHP: 50,
-    currentHP: 50,
+    maxHP: 250,
+    currentHP: 250,
     attackDamage: 20,
     heroImage: "./assets/images/aragorn.jpg"
 }
@@ -93,23 +93,27 @@ function heroAttack (target) {
         enemyThree.currentHP -= 10;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
     }
+    enemyAttack();
 }
 
 function enemyAttack () {
     if (enemyOne.alive) {
         shake($('heroImage'));
         hero.currentHP -= enemyOne.attackDamage;
-        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage!);        
+        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
     }
     if (enemyTwo.alive) {
         shake($('heroImage'));
         hero.currentHP -= enemyTwo.attackDamage;
-        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage!);        
+        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
     }
     if (enemyThree.alive) {
         shake($('heroImage'));
         hero.currentHP -= enemyThree.attackDamage;
-        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage!);        
+        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
     }
 }
 
