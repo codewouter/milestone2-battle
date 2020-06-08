@@ -5,7 +5,7 @@ var enemyOne = {
     maxHP: 20,
     currentHP: 20,
     attackDamage: 5,
-    enemyImage: "../../assets/images/orc.jpg"
+    enemyImage: "./assets/images/orc.jpg"
 }
 
 var enemyTwo = {
@@ -13,7 +13,7 @@ var enemyTwo = {
     maxHP: 40,
     currentHP: 40,
     attackDamage: 15,
-    enemyImage: "../../assets/images/lotrtroll.jpg"
+    enemyImage: "./assets/images/lotrtroll.jpg"
 }
 
 var enemyThree = {
@@ -21,14 +21,14 @@ var enemyThree = {
     maxHP: 30,
     currentHP: 30,
     attackDamage: 10,
-    enemyImage: "../../assets/images/urukhai.jpg"
+    enemyImage: "./assets/images/urukhai.jpg"
 }
 
 var hero = {
     maxHP: 50,
     currentHP: 50,
     attackDamage: 20,
-    heroImage: "../../assets/images/aragorn.jpg"
+    heroImage: "./assets/images/aragorn.jpg"
 }
 
 
