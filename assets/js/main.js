@@ -1,3 +1,5 @@
+var readToSelectTarget = false;
+
 var orc = {
     race:"Orc",
     maxHP: 30,
@@ -11,9 +13,6 @@ var hero = {
     attackDamage: 20
 }
 
-var battleLog = ["Test01", "Test02", "Test03"];
-
-
 $("#enemyOne").html(orc.race);
 $("#enemyOneMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
@@ -25,15 +24,6 @@ $("#enemyTwoCurrentHP").html("Current HP: " + orc.currentHP);
 $("#enemyThree").html(orc.race);
 $("#enemyThreeMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyThreeCurrentHP").html("Current HP: " + orc.currentHP);
-
-function updateBattleLog(battleLog) {
-    var i;
-    for (i = 0; i < battleLog.length; i++) {
-        $("#battleLogDiv").append(battleLog[i] + "<br>");
-    }
-}
-
-updateBattleLog(battleLog);
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
@@ -73,20 +63,36 @@ function attack (target) {
 
 $("#attackButton").click(function() {
     console.log('attack clicked');
-    $('#enemyOneImage').click(function() {
-        console.log('E1 clicked');
-        attack(1);
-    })
-    $('#enemyTwoImage').click(function() {
-        console.log('E2 clicked');
-        attack(2);
-    })
-    $('#enemyThreeImage').click(function() {
-        console.log('E3 clicked');
-        attack(3);
-    })
+    readToSelectTarget = true;
+    $("#battleLogDiv").append("Select target to attack!<br>");
 })
 
+$('#enemyOneImage').click(function() {
+    console.log('target E1 clicked');
+    if (readToSelectTarget) {
+        attack(1);
+        readToSelectTarget=false;
+    } else
+        $("#battleLogDiv").append("Select attack method!<br>");
+})
+
+$('#enemyTwoImage').click(function() {
+    console.log('target E2 clicked');
+    if (readToSelectTarget) {
+        attack(2);
+        readToSelectTarget=false;
+    } else
+        $("#battleLogDiv").append("Select attack method!<br>");
+})
+
+$('#enemyThreeImage').click(function() {
+    console.log('target E3 clicked');
+    if (readToSelectTarget) {
+        attack(3);
+        readToSelectTarget=false;
+    } else
+        $("#battleLogDiv").append("Select attack method!<br>");
+})
 
 
 
