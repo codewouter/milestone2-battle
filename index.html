@@ -17,7 +17,7 @@
                     <div class="col-12 mainHeader">Round: 3</div> 
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
-                            <div class="col-8 h-100"> <!-- selection + enemyPic-->
+                            <div class="col-8 h-100"> <!-- selection + enemyPic, the SelectBox is for possible future implementation, for now just the race from the objectfile-->
                                 <div id="enemyOne" class="selectBox"></div>
                                 <div class="enemyImageHolder">
                                     <img id="enemyOneImage" class="enemyImage rounded-circle" src="./assets/images/orc.jpg" alt="">
@@ -26,8 +26,8 @@
                             <div class="col-4 h-100"><!-- stats box -->
                                 <div class="row h-100">
                                     <div class="col-12 h-25"></div>
-                                    <div id="enemyOneMaxHP" class="col-12 h-25 statIndicator"></div>
-                                    <div id="enemyOneCurrentHP" class="col-12 h-25 statIndicator"></div>
+                                    <div id="enemyOneMaxHP" class="col-12 h-25 enemyStatIndicator"></div>
+                                    <div id="enemyOneCurrentHP" class="col-12 h-25 enemyStatIndicator"></div>
                                     <div class="col-12 h-25"></div>
                                 </div>
                             </div>
@@ -44,8 +44,8 @@
                             <div class="col-4 h-100"><!-- stats box -->
                                 <div class="row h-100">
                                     <div class="col-12 h-25"></div>
-                                    <div id="enemyTwoMaxHP" class="col-12 h-25 statIndicator"></div>
-                                    <div id="enemyTwoCurrentHP" class="col-12 h-25 statIndicator"></div>
+                                    <div id="enemyTwoMaxHP" class="col-12 h-25 enemyStatIndicator"></div>
+                                    <div id="enemyTwoCurrentHP" class="col-12 h-25 enemyStatIndicator"></div>
                                     <div class="col-12 h-25"></div>
                                 </div>
                             </div>
@@ -62,8 +62,8 @@
                              <div class="col-4 h-100"><!-- stats box -->
                                 <div class="row h-100">
                                     <div class="col-12 h-25"></div>
-                                    <div id="enemyThreeMaxHP" class="col-12 h-25 statIndicator"></div>
-                                    <div id="enemyThreeCurrentHP" class="col-12 h-25 statIndicator"></div>
+                                    <div id="enemyThreeMaxHP" class="col-12 h-25 enemyStatIndicator"></div>
+                                    <div id="enemyThreeCurrentHP" class="col-12 h-25 enemyStatIndicator"></div>
                                     <div class="col-12 h-25"></div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
             </section>
             <!-- Lowersection containing the hero statistics, avatar and battlelog. Takes up 40% of screenheight -->
             <section class="lowerSection">
-                <div class="row h-100 justify-content-stretch">
+                <div class="row h-100">
                     <div class="col-6 col-sm-3 heroStatBox">
                         <div class="col-12 h-25"></div>
                         <div class="col-12 heroStatIndicator h-25 align-self-center">HP: 10</div>

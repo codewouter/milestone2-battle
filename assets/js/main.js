@@ -13,6 +13,7 @@ var hero = {
     attackDamage: 20
 }
 
+
 $("#enemyOne").html(orc.race);
 $("#enemyOneMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
@@ -73,7 +74,7 @@ $('#enemyOneImage').click(function() {
         attack(1);
         readToSelectTarget=false;
     } else
-        $("#battleLogDiv").append("Select attack method!<br>");
+        $("#battleLogDiv").append("Select attack type!<br>");
 })
 
 $('#enemyTwoImage').click(function() {
@@ -82,7 +83,7 @@ $('#enemyTwoImage').click(function() {
         attack(2);
         readToSelectTarget=false;
     } else
-        $("#battleLogDiv").append("Select attack method!<br>");
+        $("#battleLogDiv").append("Select attack type!<br>");
 })
 
 $('#enemyThreeImage').click(function() {
@@ -91,7 +92,7 @@ $('#enemyThreeImage').click(function() {
         attack(3);
         readToSelectTarget=false;
     } else
-        $("#battleLogDiv").append("Select attack method!<br>");
+        $("#battleLogDiv").append("Select attack type!<br>");
 })
 
 

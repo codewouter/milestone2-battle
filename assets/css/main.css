@@ -18,12 +18,14 @@
 
 /* css targeting uppersection parts */
 .mainHeader {
+    display: flex;
     font-family: 'Lucida Sans', sans-serif;
-    font-size: 1.25rem;
+    font-size: 3vh;
     font-style: italic;
-    height: 20%;
+    height: 15%;
     background-color: white;
-    text-align: center;
+    align-items:center;
+    justify-content:center;
 }
 .enemyBox {
     max-height: 40%;
@@ -47,12 +49,15 @@
     max-height: 100%;
     position:relative;
 }
-.statIndicator {
+.enemyStatIndicator {
+    display: flex;
     font-family: 'Poppins', sans-serif;
     font-size: 2.5vmin;
     font-weight: bold;
-    text-align: center; 
+    align-items:center;
+    justify-content:center;
     background-color: white;
+
 }
 /* css targeting middleSection*/
 .attackButton {
@@ -94,6 +99,7 @@
     background-color: white;
     height: 40%;
     border: 2px solid blue;
+    overflow: scroll;
 }
 
 /* media queries */
