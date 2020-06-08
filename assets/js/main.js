@@ -5,7 +5,7 @@ var enemyOne = {
     maxHP: 20,
     currentHP: 20,
     attackDamage: 5,
-    enemyImage: "./assets/images/orc.jpg"
+    enemyImage: "assets/images/orc.jpg"
 }
 
 var enemyTwo = {
