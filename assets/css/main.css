@@ -99,7 +99,7 @@
     background-color: white;
     height: 40%;
     border: 2px solid blue;
-    overflow: scroll;
+    overflow: auto;
 }
 
 /* media queries */

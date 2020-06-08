@@ -28,7 +28,7 @@ var hero = {
     maxHP: 50,
     currentHP: 50,
     attackDamage: 20,
-    heroImage: "/assets/images/aragorn"
+    heroImage: "/assets/images/aragorn.jpg"
 }
 
 
