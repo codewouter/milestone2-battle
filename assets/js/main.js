@@ -1,30 +1,51 @@
 var readToSelectTarget = false;
 
-var orc = {
+var enemyOne = {
     race:"Orc",
+    maxHP: 20,
+    currentHP: 20,
+    attackDamage: 5,
+    enemyImage: "/assets/images/orc.jpg"
+}
+
+var enemyTwo = {
+    race:"Troll",
+    maxHP: 40,
+    currentHP: 40,
+    attackDamage: 15,
+    enemyImage: "/assets/images/lotrtroll.jpg"
+}
+
+var enemyThree = {
+    race:"Uruk-Hai",
     maxHP: 30,
     currentHP: 30,
-    attackDamage: 10
+    attackDamage: 10,
+    enemyImage: "/assets/images/urukhai.jpg"
 }
 
 var hero = {
     maxHP: 50,
     currentHP: 50,
-    attackDamage: 20
+    attackDamage: 20,
+    heroImage: "/assets/images/aragorn"
 }
 
 
-$("#enemyOne").html(orc.race);
-$("#enemyOneMaxHP").html("Max HP: " + orc.maxHP);
-$("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
+$("#enemyOne").html(enemyOne.race);
+$("#enemyOneMaxHP").html("Max HP: " + enemyOne.maxHP);
+$("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
+$("#enemyOneImage").attr("src", enemyOne.enemyImage);
 
-$("#enemyTwo").html(orc.race);
-$("#enemyTwoMaxHP").html("Max HP: " + orc.maxHP);
-$("#enemyTwoCurrentHP").html("Current HP: " + orc.currentHP);
+$("#enemyTwo").html(enemyTwo.race);
+$("#enemyTwoMaxHP").html("Max HP: " + enemyTwo.maxHP);
+$("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
+$("#enemyTwoImage").attr("src", enemyTwo.enemyImage);
 
-$("#enemyThree").html(orc.race);
-$("#enemyThreeMaxHP").html("Max HP: " + orc.maxHP);
-$("#enemyThreeCurrentHP").html("Current HP: " + orc.currentHP);
+$("#enemyThree").html(enemyThree.race);
+$("#enemyThreeMaxHP").html("Max HP: " + enemyThree.maxHP);
+$("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
+$("#enemyThreeImage").attr("src", enemyThree.enemyImage);
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
