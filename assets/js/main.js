@@ -5,6 +5,7 @@ var enemyOne = {
     maxHP: 20,
     currentHP: 20,
     attackDamage: 5,
+    alive: true,
     enemyImage: "./assets/images/orc.jpg"
 }
 
@@ -13,6 +14,7 @@ var enemyTwo = {
     maxHP: 40,
     currentHP: 40,
     attackDamage: 15,
+    alive: true,
     enemyImage: "./assets/images/lotrtroll.jpg"
 }
 
@@ -21,6 +23,7 @@ var enemyThree = {
     maxHP: 30,
     currentHP: 30,
     attackDamage: 10,
+    alive: true,
     enemyImage: "./assets/images/urukhai.jpg"
 }
 
@@ -47,6 +50,12 @@ $("#enemyThreeMaxHP").html("Max HP: " + enemyThree.maxHP);
 $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
 $("#enemyThreeImage").attr("src", enemyThree.enemyImage);
 
+
+$("#heroImage").attr("src", hero.heroImage);
+$("#heroMaxHP").html("Max HP: " + hero.maxHP);
+$("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+
+
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
 // https://bradleyhamilton.com/projects/shake/index.html 
@@ -70,11 +79,10 @@ function shake(thing) {
 
 // *** attack parser ***
 // Shakes relevant target and calculates damage
-function attack (target) {
+function heroAttack (target) {
     if (target == 1) {
         shake($('#enemyOneImage'));
         enemyOne.currentHP -= 10;
-        console.log(enemyOne.CurrentHP);
         $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
@@ -84,6 +92,24 @@ function attack (target) {
         shake($('#enemyThreeImage'));
         enemyThree.currentHP -= 10;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
+    }
+}
+
+function enemyAttack () {
+    if (enemyOne.alive) {
+        shake($('heroImage'));
+        hero.currentHP -= enemyOne.attackDamage;
+        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage!);        
+    }
+    if (enemyTwo.alive) {
+        shake($('heroImage'));
+        hero.currentHP -= enemyTwo.attackDamage;
+        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage!);        
+    }
+    if (enemyThree.alive) {
+        shake($('heroImage'));
+        hero.currentHP -= enemyThree.attackDamage;
+        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage!);        
     }
 }
 
@@ -98,7 +124,7 @@ $("#attackButton").click(function() {
 // After attackbutton has been clicked, a target must be selected. Three options
 $('#enemyOneImage').click(function() {
     if (readToSelectTarget) {
-        attack(1);
+        heroAttack(1);
         readToSelectTarget=false;
     } else
         $("#battleLogDiv").append("Select attack type!<br>");
@@ -106,7 +132,7 @@ $('#enemyOneImage').click(function() {
 
 $('#enemyTwoImage').click(function() {
     if (readToSelectTarget) {
-        attack(2);
+        heroAttack(2);
         readToSelectTarget=false;
     } else
         $("#battleLogDiv").append("Select attack type!<br>");
@@ -114,7 +140,7 @@ $('#enemyTwoImage').click(function() {
 
 $('#enemyThreeImage').click(function() {
     if (readToSelectTarget) {
-        attack(3);
+        heroAttack(3);
         readToSelectTarget=false;
     } else
         $("#battleLogDiv").append("Select attack type!<br>");
