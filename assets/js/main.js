@@ -68,29 +68,35 @@ function shake(thing) {
   }, interval);
 }
 
+// *** attack parser ***
+// Shakes relevant target and calculates damage
 function attack (target) {
     if (target == 1) {
         shake($('#enemyOneImage'));
-        console.log('attack 1');
+        enemyOne.currentHP -= 10;
+        console.log(enemyOne.CurrentHP);
+        $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
-        console.log('attack 2');
+        enemyTwo.currentHP -= 10;
+        $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
     } else {
         shake($('#enemyThreeImage'));
-        console.log('attack 3');
+        enemyThree.currentHP -= 10;
+        $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
     }
-    // orc.currentHP -= 10;
-    // $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
 }
 
+// attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").click(function() {
     console.log('attack clicked');
     readToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
 })
 
+// *** target selection ***
+// After attackbutton has been clicked, a target must be selected. Three options
 $('#enemyOneImage').click(function() {
-    console.log('target E1 clicked');
     if (readToSelectTarget) {
         attack(1);
         readToSelectTarget=false;
@@ -99,7 +105,6 @@ $('#enemyOneImage').click(function() {
 })
 
 $('#enemyTwoImage').click(function() {
-    console.log('target E2 clicked');
     if (readToSelectTarget) {
         attack(2);
         readToSelectTarget=false;
@@ -108,7 +113,6 @@ $('#enemyTwoImage').click(function() {
 })
 
 $('#enemyThreeImage').click(function() {
-    console.log('target E3 clicked');
     if (readToSelectTarget) {
         attack(3);
         readToSelectTarget=false;
