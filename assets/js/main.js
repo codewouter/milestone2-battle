@@ -11,6 +11,9 @@ var hero = {
     attackDamage: 20
 }
 
+var battleLog = ["Test01", "Test02", "Test03"];
+
+
 $("#enemyOne").html(orc.race);
 $("#enemyOneMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyOneCurrentHP").html("Current HP: " + orc.currentHP);
@@ -22,6 +25,15 @@ $("#enemyTwoCurrentHP").html("Current HP: " + orc.currentHP);
 $("#enemyThree").html(orc.race);
 $("#enemyThreeMaxHP").html("Max HP: " + orc.maxHP);
 $("#enemyThreeCurrentHP").html("Current HP: " + orc.currentHP);
+
+function updateBattleLog(battleLog) {
+    var i;
+    for (i = 0; i < battleLog.length; i++) {
+        $("#battleLogDiv").append(battleLog[i] + "<br>");
+    }
+}
+
+updateBattleLog(battleLog);
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
