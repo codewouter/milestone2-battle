@@ -102,19 +102,19 @@ function checkDeathEnemy(enemy) {
 function heroAttack (target) {
     if (target == 1) {
         shake($('#enemyOneImage'));
-        enemyOne.currentHP -= 10;
+        enemyOne.currentHP -= hero.attackDamage;
         $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
         $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attackDamage + "!<br>");
         checkDeathEnemy(enemyOne);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
-        enemyTwo.currentHP -= 10;
+        enemyTwo.currentHP -= hero.attackDamage;
         $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
         $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attackDamage + "!<br>");
         checkDeathEnemy(enemyTwo);
     } else {
         shake($('#enemyThreeImage'));
-        enemyThree.currentHP -= 10;
+        enemyThree.currentHP -= hero.attackDamage;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
         $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
         checkDeathEnemy(enemyThree);
