@@ -143,18 +143,26 @@ function enemyThreeAttack () {
 }
 
 function enemyAttack () {
-    if (enemyOne.alive) {
-        console.log('Enemy 1 attack');
-        setTimeout(enemyOneAttack, 1500); 
-    }
-    if (enemyTwo.alive) {
-        console.log('Enemy 2 attack');
-        setTimeout(enemyTwoAttack, 1500); 
-    }
-    if (enemyThree.alive) {
-        console.log('Enemy 3 attack');
-        setTimeout(enemyThreeAttack, 1500); 
-    }
+    setTimeout(() => enemyOneAttack(), 1500);
+    setTimeout(() => enemyTwoAttack(), 1500);
+    setTimeout(() => enemyThreeAttack(), 1500);
+
+
+
+
+    // if (enemyOne.alive) {
+    //     enemyOneAttack();
+    // }
+
+    // if (enemyTwo.alive) {
+    //     console.log('Enemy 2 attack');
+    //     enemyTwoAttack();
+    // }
+
+    // if (enemyThree.alive) {
+    //     console.log('Enemy 3 attack');
+    //     enemyThreeAttack();
+    // }
 }
 
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
