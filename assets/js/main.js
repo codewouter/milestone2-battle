@@ -63,8 +63,6 @@ function shake(thing) {
   var interval = 100;
   var distance = 10;
   var times = 6;
-  console.log('shake!');
-
   for (var i = 0; i < (times + 1); i++) {
     $(thing).animate({
       left:
@@ -93,27 +91,38 @@ function heroAttack (target) {
         enemyThree.currentHP -= 10;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
     }
-    enemyAttack();
+    setTimeout(enemyAttack(), 2000); // after hero attack is done, the enemies attack
+}
+
+function enemyOneAttack () {
+    shake($('#heroImage'))
+    hero.currentHP -= enemyOne.attackDamage;
+    $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
+    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+}
+function enemyTwoAttack () {
+    shake($('#heroImage'))
+    hero.currentHP -= enemyTwo.attackDamage;
+    $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
+    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+}
+
+function enemyThreeAttack () {
+    shake($('#heroImage'))
+    hero.currentHP -= enemyThree.attackDamage;
+    $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
+    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
 }
 
 function enemyAttack () {
     if (enemyOne.alive) {
-        shake($('heroImage'));
-        hero.currentHP -= enemyOne.attackDamage;
-        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        setTimeout(enemyOneAttack(), 2000); 
     }
     if (enemyTwo.alive) {
-        shake($('heroImage'));
-        hero.currentHP -= enemyTwo.attackDamage;
-        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        setTimeout(enemyTwoAttack(), 2000); 
     }
     if (enemyThree.alive) {
-        shake($('heroImage'));
-        hero.currentHP -= enemyThree.attackDamage;
-        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        setTimeout(enemyThreeAttack(), 2000); 
     }
 }
 
