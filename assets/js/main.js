@@ -1,4 +1,4 @@
-var readToSelectTarget = false;
+var readyToSelectTarget = false;
 
 var enemyOne = {
     race:"Orc",
@@ -62,7 +62,7 @@ $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
 function shake(thing) {
   var interval = 100;
   var distance = 10;
-  var times = 6;
+  var times = 4;
   for (var i = 0; i < (times + 1); i++) {
     $(thing).animate({
       left:
@@ -82,10 +82,21 @@ function checkDeathEnemy(enemy) {
         if (enemy.currentHP <= 0) {
             enemy.alive = false;
             $("#battleLogDiv").append("You killed " + enemy.race + "!<br>")
-
+            if (enemy == enemyOne) {
+                $("#enemyOneImage").attr("src", "./assets/images/skull.jpg");
+            }
+            if (enemy == enemyTwo) {
+                $("#enemyTwoImage").attr("src", "./assets/images/skull.jpg");
+            }
+            if (enemy == enemyThree) {
+                $("#enemyThreeImage").attr("src", "./assets/images/skull.jpg");
+            } 
         }
     }
- }
+
+    
+
+}
 // *** attack parser ***
 // Shakes relevant target and calculates damage, outputs a line to Battlelog
 function heroAttack (target) {
@@ -130,51 +141,69 @@ function enemyThreeAttack () {
 
 function enemyAttack () {
     if (enemyOne.alive) {
-        setTimeout(enemyOneAttack, 2000); 
+        console.log('Enemy 1 attack');
+        setTimeout(enemyOneAttack, 1500); 
     }
     if (enemyTwo.alive) {
-        setTimeout(enemyTwoAttack, 2000); 
+        console.log('Enemy 2 attack');
+        setTimeout(enemyTwoAttack, 1500); 
     }
     if (enemyThree.alive) {
-        setTimeout(enemyThreeAttack, 2000); 
+        console.log('Enemy 3 attack');
+        setTimeout(enemyThreeAttack, 1500); 
     }
 }
 
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").click(function() {
     console.log('attack clicked');
-    readToSelectTarget = true;
+    readyToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
 })
 
 // *** target selection ***
-// After attackbutton has been clicked, a target must be selected. Three options
+// After attackbutton has been clicked, a target must be selected. If the attackbutton has not been clicked yet,
+//  a message is asking the player to in the battlelog.
+// After that a check is made if the enemy is still alive, if it's dead, a message will appear in the battlelog
+
 $('#enemyOneImage').click(function() {
-    if (readToSelectTarget) {
-        heroAttack(1);
-        readToSelectTarget=false;
-    } else
+    if (readyToSelectTarget) {
+        if (enemyOne.alive) {
+            heroAttack(1);
+            readyToSelectTarget=false;
+        } else {
+            $("#battleLogDiv").append("Enemy already dead!<br>");
+        }
+    } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+    }
 })
 
 $('#enemyTwoImage').click(function() {
-    if (readToSelectTarget) {
-        heroAttack(2);
-        readToSelectTarget=false;
-    } else
+    if (readyToSelectTarget) {
+        if (enemyTwo.alive) {
+            heroAttack(2);
+            readyToSelectTarget=false;
+        } else {
+            $("#battleLogDiv").append("Enemy already dead!<br>");
+        }
+    } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+    }
 })
 
 $('#enemyThreeImage').click(function() {
-    if (readToSelectTarget) {
-        heroAttack(3);
-        readToSelectTarget=false;
-    } else
+    if (readyToSelectTarget) {
+        if (enemyThree.alive) {
+            heroAttack(3);
+            readyToSelectTarget=false;
+        } else {
+            $("#battleLogDiv").append("Enemy already dead!<br>");
+        }
+    } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+    }
 })
-
-
-
 
 
 
