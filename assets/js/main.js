@@ -105,16 +105,19 @@ function heroAttack (target) {
         enemyOne.currentHP -= 10;
         $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
         $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attackDamage + "!<br>");
+        checkDeathEnemy(enemyOne);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
         enemyTwo.currentHP -= 10;
         $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
         $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attackDamage + "!<br>");
+        checkDeathEnemy(enemyTwo);
     } else {
         shake($('#enemyThreeImage'));
         enemyThree.currentHP -= 10;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
         $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
+        checkDeathEnemy(enemyThree);
     }
     enemyAttack(); // after hero attack is done, the enemies attack
 }
