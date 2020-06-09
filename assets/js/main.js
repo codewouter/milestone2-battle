@@ -75,6 +75,17 @@ function shake(thing) {
   }, interval);
 }
 
+// function to determine if enemy has died. If hp is 0 or lower, it was killed. Replacing the image and putting out a message to the battlelog
+// if the enemy was already dead (in case it was not initialized), nothing happens.
+function checkDeathEnemy(enemy) {
+    if (enemy.alive) {
+        if (enemy.currentHP <= 0) {
+            enemy.alive = false;
+            $("#battleLogDiv").append("You killed " + enemy.race + "!<br>")
+
+        }
+    }
+ }
 // *** attack parser ***
 // Shakes relevant target and calculates damage, outputs a line to Battlelog
 function heroAttack (target) {
@@ -94,7 +105,7 @@ function heroAttack (target) {
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
         $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
     }
-    setTimeout(enemyAttack(), 2000); // after hero attack is done, the enemies attack
+    enemyAttack(); // after hero attack is done, the enemies attack
 }
 
 function enemyOneAttack () {
@@ -119,13 +130,13 @@ function enemyThreeAttack () {
 
 function enemyAttack () {
     if (enemyOne.alive) {
-        setTimeout(enemyOneAttack(), 2000); 
+        setTimeout(enemyOneAttack, 2000); 
     }
     if (enemyTwo.alive) {
-        setTimeout(enemyTwoAttack(), 2000); 
+        setTimeout(enemyTwoAttack, 2000); 
     }
     if (enemyThree.alive) {
-        setTimeout(enemyThreeAttack(), 2000); 
+        setTimeout(enemyThreeAttack, 2000); 
     }
 }
 
