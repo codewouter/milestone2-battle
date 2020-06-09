@@ -76,20 +76,23 @@ function shake(thing) {
 }
 
 // *** attack parser ***
-// Shakes relevant target and calculates damage
+// Shakes relevant target and calculates damage, outputs a line to Battlelog
 function heroAttack (target) {
     if (target == 1) {
         shake($('#enemyOneImage'));
         enemyOne.currentHP -= 10;
         $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
+        $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attackDamage + "!<br>");
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
         enemyTwo.currentHP -= 10;
         $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
+        $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attackDamage + "!<br>");
     } else {
         shake($('#enemyThreeImage'));
         enemyThree.currentHP -= 10;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
+        $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
     }
     setTimeout(enemyAttack(), 2000); // after hero attack is done, the enemies attack
 }
