@@ -93,9 +93,6 @@ function checkDeathEnemy(enemy) {
             } 
         }
     }
-
-    
-
 }
 // *** attack parser ***
 // Shakes relevant target and calculates damage, outputs a line to Battlelog
@@ -123,26 +120,40 @@ function heroAttack (target) {
 }
 
 function enemyOneAttack (x, callback) {
-    shake($('#heroImage'))
-    hero.currentHP -= enemyOne.attackDamage;
-    $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
-    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
-    setTimeout(function() { callback(); }, 1000)
+    if (enemyOne.alive) {
+        shake($('#heroImage'))
+        hero.currentHP -= enemyOne.attackDamage;
+        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        setTimeout(function() { callback(); }, 1000)
+    } else {
+        callback();
+    }
 }
+
 function enemyTwoAttack (x, callback) {
-    shake($('#heroImage'))
-    hero.currentHP -= enemyTwo.attackDamage;
-    $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
-    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
-    setTimeout(function() { callback(); }, 1000)
+    if (enemyTwo.alive) {
+        shake($('#heroImage'))
+        hero.currentHP -= enemyTwo.attackDamage;
+        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        setTimeout(function() { callback(); }, 1000)
+    } else {
+        callback();
+    }
 }
 
 function enemyThreeAttack (x, callback) {
-    shake($('#heroImage'))
-    hero.currentHP -= enemyThree.attackDamage;
-    $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
-    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
-    callback();
+    if (enemyThree.alive) {
+        shake($('#heroImage'))
+        hero.currentHP -= enemyThree.attackDamage;
+        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
+        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        callback();
+    } else {
+        callback();
+    }
+    
 }
 
 //Function with the callbacks in the enemyOneAttack(and two and three) is adapted from https://stackoverflow.com/questions/5187968/how-should-i-call-3-functions-in-order-to-execute-them-one-after-the-other
@@ -156,22 +167,6 @@ function enemyAttack () {
     })
 }
 
-
-
-    // if (enemyOne.alive) {
-    //     enemyOneAttack();
-    // }
-
-    // if (enemyTwo.alive) {
-    //     console.log('Enemy 2 attack');
-    //     enemyTwoAttack();
-    // }
-
-    // if (enemyThree.alive) {
-    //     console.log('Enemy 3 attack');
-    //     enemyThreeAttack();
-    // }
-
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").click(function() {
     console.log('attack clicked');
@@ -183,7 +178,6 @@ $("#attackButton").click(function() {
 // After attackbutton has been clicked, a target must be selected. If the attackbutton has not been clicked yet,
 //  a message is asking the player to in the battlelog.
 // After that a check is made if the enemy is still alive, if it's dead, a message will appear in the battlelog
-
 $('#enemyOneImage').click(function() {
     if (readyToSelectTarget) {
         if (enemyOne.alive) {
@@ -222,6 +216,3 @@ $('#enemyThreeImage').click(function() {
         $("#battleLogDiv").append("Select attack type!<br>");
     }
 })
-
-
-
