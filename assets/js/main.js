@@ -1,4 +1,5 @@
 var readyToSelectTarget = false;
+var battleLogDiv = document.querySelector('#battleLogDiv');
 
 var enemyOne = {
     race:"Orc",
@@ -33,7 +34,6 @@ var hero = {
     attackDamage: 20,
     heroImage: "./assets/images/aragorn.jpg"
 }
-
 
 $("#enemyOne").html(enemyOne.race);
 $("#enemyOneMaxHP").html("Max HP: " + enemyOne.maxHP);
@@ -82,6 +82,7 @@ function checkDeathEnemy(enemy) {
         if (enemy.currentHP <= 0) {
             enemy.alive = false;
             $("#battleLogDiv").append("You killed " + enemy.race + "!<br>")
+            battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
             if (enemy == enemyOne) {
                 $("#enemyOneImage").attr("src", "./assets/images/skull.jpg");
             }
@@ -102,18 +103,21 @@ function heroAttack (target) {
         enemyOne.currentHP -= hero.attackDamage;
         $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
         $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyOne);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
         enemyTwo.currentHP -= hero.attackDamage;
         $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
         $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyTwo);
     } else {
         shake($('#enemyThreeImage'));
         enemyThree.currentHP -= hero.attackDamage;
         $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
         $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyThree);
     }
     setTimeout(enemyAttack, 1000); // after hero attack is done, the enemies attack
@@ -123,7 +127,8 @@ function enemyOneAttack (x, callback) {
     if (enemyOne.alive) {
         shake($('#heroImage'))
         hero.currentHP -= enemyOne.attackDamage;
-        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");        
+        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
         $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
         setTimeout(function() { callback(); }, 1000)
     } else {
@@ -135,7 +140,8 @@ function enemyTwoAttack (x, callback) {
     if (enemyTwo.alive) {
         shake($('#heroImage'))
         hero.currentHP -= enemyTwo.attackDamage;
-        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");        
+        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;    
         $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
         setTimeout(function() { callback(); }, 1000)
     } else {
@@ -147,7 +153,8 @@ function enemyThreeAttack (x, callback) {
     if (enemyThree.alive) {
         shake($('#heroImage'))
         hero.currentHP -= enemyThree.attackDamage;
-        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");        
+        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;      
         $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
         callback();
     } else {
@@ -172,6 +179,7 @@ $("#attackButton").click(function() {
     console.log('attack clicked');
     readyToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
+    battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
 })
 
 // *** target selection ***
@@ -185,9 +193,11 @@ $('#enemyOneImage').click(function() {
             readyToSelectTarget=false;
         } else {
             $("#battleLogDiv").append("Enemy already dead!<br>");
+            battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         }
     } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
     }
 })
 
@@ -198,9 +208,11 @@ $('#enemyTwoImage').click(function() {
             readyToSelectTarget=false;
         } else {
             $("#battleLogDiv").append("Enemy already dead!<br>");
+            battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         }
     } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
     }
 })
 
@@ -211,8 +223,10 @@ $('#enemyThreeImage').click(function() {
             readyToSelectTarget=false;
         } else {
             $("#battleLogDiv").append("Enemy already dead!<br>");
+            battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         }
     } else { 
         $("#battleLogDiv").append("Select attack type!<br>");
+        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
     }
 })
