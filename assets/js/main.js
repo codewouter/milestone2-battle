@@ -1,5 +1,6 @@
 var readyToSelectTarget = false;
 var battleLogDiv = document.querySelector('#battleLogDiv');
+var musicPlaying = false;
 
 var enemyOne = {
     race:"Orc",
@@ -36,6 +37,7 @@ var hero = {
 }
 var aragornHitSound = new Audio('/assets/sound/aragornattack.mp3');
 var enemyHitSound = new Audio('/assets/sound/enemyattack.mp3');
+var backgroundMusic = new Audio('/assets/sound/backgroundmusic.mp3');
 
 initialiseGame();
 
@@ -192,6 +194,18 @@ $("#attackButton").click(function() {
     battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
 })
 
+$("#musicButton").click(function () {
+    if (musicPlaying) {
+        backgroundMusic.pause();
+        musicPlaying = false;
+        $("#musicButton").html('Music off');
+    } else {
+        backgroundMusic.play();
+        musicPlaying = true;
+        $("#musicButton").html('Music on');
+    }
+})
+
 // *** target selection ***
 // After attackbutton has been clicked, a target must be selected. If the attackbutton has not been clicked yet,
 //  a message is asking the player to in the battlelog.
@@ -201,6 +215,7 @@ $('#enemyOneImage').click(function() {
         if (enemyOne.alive) {
             heroAttack(1);
             readyToSelectTarget=false;
+
         } else {
             $("#battleLogDiv").append("Enemy already dead!<br>");
             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
