@@ -35,26 +35,29 @@ var hero = {
     heroImage: "./assets/images/aragorn.jpg"
 }
 
-$("#enemyOne").html(enemyOne.race);
-$("#enemyOneMaxHP").html("Max HP: " + enemyOne.maxHP);
-$("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
-$("#enemyOneImage").attr("src", enemyOne.enemyImage);
+function initialiseGame() {
+    $("#enemyOne").html(enemyOne.race);
+    $("#enemyOneMaxHP").html("Max HP: " + enemyOne.maxHP);
+    $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
+    $("#enemyOneImage").attr("src", enemyOne.enemyImage);
 
-$("#enemyTwo").html(enemyTwo.race);
-$("#enemyTwoMaxHP").html("Max HP: " + enemyTwo.maxHP);
-$("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
-$("#enemyTwoImage").attr("src", enemyTwo.enemyImage);
+    $("#enemyTwo").html(enemyTwo.race);
+    $("#enemyTwoMaxHP").html("Max HP: " + enemyTwo.maxHP);
+    $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
+    $("#enemyTwoImage").attr("src", enemyTwo.enemyImage);
 
-$("#enemyThree").html(enemyThree.race);
-$("#enemyThreeMaxHP").html("Max HP: " + enemyThree.maxHP);
-$("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
-$("#enemyThreeImage").attr("src", enemyThree.enemyImage);
+    $("#enemyThree").html(enemyThree.race);
+    $("#enemyThreeMaxHP").html("Max HP: " + enemyThree.maxHP);
+    $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
+    $("#enemyThreeImage").attr("src", enemyThree.enemyImage);
+
+    $("#heroImage").attr("src", hero.heroImage);
+    $("#heroMaxHP").html("Max HP: " + hero.maxHP);
+    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+}
 
 
-$("#heroImage").attr("src", hero.heroImage);
-$("#heroMaxHP").html("Max HP: " + hero.maxHP);
-$("#heroCurrentHP").html("Current HP: " + hero.currentHP);
-
+initialiseGame();
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
 // adaptable SHAKE function, from 
