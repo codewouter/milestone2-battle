@@ -35,9 +35,9 @@ var hero = {
     attackDamage: 20,
     heroImage: "./assets/images/aragorn.jpg"
 }
-var aragornHitSound = new Audio('/assets/sound/aragornattack.mp3');
-var enemyHitSound = new Audio('/assets/sound/enemyattack.mp3');
-var backgroundMusic = new Audio('/assets/sound/backgroundmusic.mp3');
+var aragornHitSound = new Audio('./assets/sound/aragornattack.mp3');
+var enemyHitSound = new Audio('./assets/sound/enemyattack.mp3');
+var backgroundMusic = new Audio('./assets/sound/backgroundmusic.mp3');
 
 initialiseGame();
 
@@ -60,6 +60,8 @@ function initialiseGame() {
     $("#heroImage").attr("src", hero.heroImage);
     $("#heroMaxHP").html("Max HP: " + hero.maxHP);
     $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+
+    $("#battleLogDiv").html("");
 }
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
