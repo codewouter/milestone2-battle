@@ -4,35 +4,31 @@ var musicPlaying = false;
 
 var enemyOne = {
     race:"Orc",
-    maxHP: 20,
-    currentHP: 20,
-    attackDamage: 5,
+    HP: 20,
+    attack: 5,
     alive: true,
     enemyImage: "./assets/images/orc.jpg"
 }
 
 var enemyTwo = {
     race:"Troll",
-    maxHP: 40,
-    currentHP: 40,
-    attackDamage: 15,
+    HP: 40,
+    attack: 15,
     alive: true,
     enemyImage: "./assets/images/lotrtroll.jpg"
 }
 
 var enemyThree = {
     race:"Uruk-Hai",
-    maxHP: 30,
-    currentHP: 30,
-    attackDamage: 10,
+    HP: 30,
+    attack: 10,
     alive: true,
     enemyImage: "./assets/images/urukhai.jpg"
 }
 
 var hero = {
-    maxHP: 250,
-    currentHP: 250,
-    attackDamage: 20,
+    HP: 250,
+    attack: 20,
     heroImage: "./assets/images/aragorn.jpg"
 }
 var aragornHitSound = new Audio('./assets/sound/aragornattack.mp3');
@@ -43,23 +39,23 @@ initialiseGame();
 
 function initialiseGame() {
     $("#enemyOne").html(enemyOne.race);
-    $("#enemyOneMaxHP").html("Max HP: " + enemyOne.maxHP);
-    $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
+    $("#enemyOneAttack").html("Attack<br>" + enemyOne.attack);
+    $("#enemyOneHP").html("HP<br>" + enemyOne.HP);
     $("#enemyOneImage").attr("src", enemyOne.enemyImage);
 
     $("#enemyTwo").html(enemyTwo.race);
-    $("#enemyTwoMaxHP").html("Max HP: " + enemyTwo.maxHP);
-    $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
+    $("#enemyTwoAttack").html("Attack<br>" + enemyTwo.attack);
+    $("#enemyTwoHP").html("HP<br>" + enemyTwo.HP);
     $("#enemyTwoImage").attr("src", enemyTwo.enemyImage);
 
     $("#enemyThree").html(enemyThree.race);
-    $("#enemyThreeMaxHP").html("Max HP: " + enemyThree.maxHP);
-    $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
+    $("#enemyThreeAttack").html("Attack<br>" + enemyThree.attack);
+    $("#enemyThreeHP").html("HP<br>" + enemyThree.HP);
     $("#enemyThreeImage").attr("src", enemyThree.enemyImage);
 
     $("#heroImage").attr("src", hero.heroImage);
-    $("#heroMaxHP").html("Max HP: " + hero.maxHP);
-    $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+    $("#heroAttack").html("Attack<br>" + hero.attack);
+    $("#heroHP").html("HP<br>" + hero.HP);
 
     $("#battleLogDiv").html("");
 }
@@ -87,7 +83,7 @@ function shake(thing) {
 // if the enemy was already dead (in case it was not initialized), nothing happens.
 function checkDeathEnemy(enemy) {
     if (enemy.alive) {
-        if (enemy.currentHP <= 0) {
+        if (enemy.HP <= 0) {
             enemy.alive = false;
             $("#battleLogDiv").append("You killed " + enemy.race + "!<br>")
             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
@@ -109,25 +105,25 @@ function heroAttack (target) {
     if (target == 1) {
         shake($('#enemyOneImage'));
         aragornHitSound.play();
-        enemyOne.currentHP -= hero.attackDamage;
-        $("#enemyOneCurrentHP").html("Current HP: " + enemyOne.currentHP);
-        $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attackDamage + "!<br>");
+        enemyOne.HP -= hero.attack;
+        $("#enemyOneHP").html("HP: " + enemyOne.HP);
+        $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyOne);
     } else if (target == 2) {
         shake($('#enemyTwoImage'));
         aragornHitSound.play();
-        enemyTwo.currentHP -= hero.attackDamage;
-        $("#enemyTwoCurrentHP").html("Current HP: " + enemyTwo.currentHP);
-        $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attackDamage + "!<br>");
+        enemyTwo.HP -= hero.attack;
+        $("#enemyTwoHP").html("HP: " + enemyTwo.HP);
+        $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyTwo);
     } else {
         shake($('#enemyThreeImage'));
         aragornHitSound.play();
-        enemyThree.currentHP -= hero.attackDamage;
-        $("#enemyThreeCurrentHP").html("Current HP: " + enemyThree.currentHP);
-        $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attackDamage + "!<br>");
+        enemyThree.HP -= hero.attack;
+        $("#enemyThreeHP").html("HP: " + enemyThree.HP);
+        $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyThree);
     }
@@ -138,10 +134,10 @@ function enemyOneAttack (x, callback) {
     if (enemyOne.alive) {
         shake($('#heroImage'))
         enemyHitSound.play();
-        hero.currentHP -= enemyOne.attackDamage;
-        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attackDamage + "!<br>");
+        hero.HP -= enemyOne.attack;
+        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attack+ "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        $("#heroHP").html("HP: " + hero.HP);
         setTimeout(function() { callback(); }, 1200)
     } else {
         callback();
@@ -152,10 +148,10 @@ function enemyTwoAttack (x, callback) {
     if (enemyTwo.alive) {
         shake($('#heroImage'))
         enemyHitSound.play();
-        hero.currentHP -= enemyTwo.attackDamage;
-        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attackDamage + "!<br>");
+        hero.HP -= enemyTwo.attack;
+        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;    
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        $("#heroHP").html("HP: " + hero.HP);
         setTimeout(function() { callback(); }, 1200)
     } else {
         callback();
@@ -166,10 +162,10 @@ function enemyThreeAttack (x, callback) {
     if (enemyThree.alive) {
         shake($('#heroImage'))
         enemyHitSound.play();
-        hero.currentHP -= enemyThree.attackDamage;
-        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attackDamage + "!<br>");
+        hero.HP -= enemyThree.attack;
+        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;      
-        $("#heroCurrentHP").html("Current HP: " + hero.currentHP);
+        $("#heroHP").html("HP: " + hero.HP);
         callback();
     } else {
         callback();

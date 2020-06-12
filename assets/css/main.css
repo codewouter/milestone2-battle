@@ -58,14 +58,20 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
     position:relative;
 }
 .enemyStatIndicator {
+    text-shadow:
+        -1px -1px 0 grey,  
+        1px -1px 0 grey,
+        -1px 1px 0 grey,
+        1px 1px 0 grey;
     display: flex;
     font-family: 'Poppins', sans-serif;
     font-size: 2.5vmin;
     font-weight: bold;
     align-items:center;
     justify-content:center;
-    background-color: white;
-
+    text-align: center;
+    border: 1px solid black;
+    background-image: url('../images/wood.jpg')
 }
 /* css targeting middleSection*/
 
@@ -85,16 +91,23 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 
 .heroStatBox {
     height: 60%;
-    justify-content: stretch;
+    /* justify-content: stretch; */
 }
 .heroStatIndicator {
+    text-shadow:
+       -1px -1px 0 grey,  
+         1px -1px 0 grey,
+        -1px 1px 0 grey,
+        1px 1px 0 grey;
     display: flex;
     font-family: 'Poppins', sans-serif;
     font-size: 4vmin;
     font-weight: bold;
-    align-items:center;
+    align-items: center;
     justify-content:center;
-    background-color: white;
+    text-align: center;
+    border: 1px solid black;
+    background-image: url('../images/wood.jpg')
 }
 
 .heroImageBox {
