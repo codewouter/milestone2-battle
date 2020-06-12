@@ -66,7 +66,7 @@ function initialiseGame() {
     $("#heroAttack").html("Attack<br>" + hero.attack);
     $("#heroHP").html("HP<br>" + hero.HP);
 
-    $("#battleLogDiv").html("Let the battle begin!");
+    $("#battleLogDiv").html("Let the battle begin!<br>");
 }
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
