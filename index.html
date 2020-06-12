@@ -14,7 +14,7 @@
             <!-- Uppersection containing display of numbers of rounds played, enemies and statistics of enemies. Takes up 40% of screenheight -->
             <section class="upperSection">
                 <div class="row justify-content-center h-100"> 
-                    <div class="col-12 mainHeader">Round: 3</div> 
+                    <div id="mainHeader" class="col-12 mainHeader"></div> 
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
                             <div class="col-8 h-100"> <!-- selection + enemyPic, the SelectBox is for possible future implementation, for now just the race from the objectfile-->
@@ -77,7 +77,7 @@
                     <!-- Stock bootstrap danger button -->
                     <button id="resetButton" type="button" class="btn btn-dark resetButton">Reset</button>
                     <button id="attackButton" type="button" class="btn btn-danger attackButton">Attack!</button>
-                    <button id="musicButton" type="button" class="btn btn-dark musicbutton">Music off</button>
+                    <button id="musicButton" type="button" class="btn btn-dark musicbutton">Music: off</button>
                 </div>
             </section>
             <!-- Lowersection containing the hero statistics, avatar and battlelog. Takes up 40% of screenheight -->

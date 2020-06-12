@@ -1,3 +1,4 @@
+var round;
 var readyToSelectTarget = false;
 var battleLogDiv = document.querySelector('#battleLogDiv');
 var musicPlaying = false;
@@ -14,6 +15,7 @@ var backgroundMusic = new Audio('./assets/sound/backgroundmusic.mp3');
 initialiseGame();
 
 function initialiseGame() {
+    round = 1;
     enemyOne = {
         race:"Orc",
         HP: 20,
@@ -44,6 +46,7 @@ function initialiseGame() {
         heroImage: "./assets/images/aragorn.jpg"
     }
 
+    $("#mainHeader").html("Round "+round);
     $("#enemyOne").html(enemyOne.race);
     $("#enemyOneAttack").html("Attack<br>" + enemyOne.attack);
     $("#enemyOneHP").html("HP<br>" + enemyOne.HP);
@@ -63,7 +66,7 @@ function initialiseGame() {
     $("#heroAttack").html("Attack<br>" + hero.attack);
     $("#heroHP").html("HP<br>" + hero.HP);
 
-    $("#battleLogDiv").html("");
+    $("#battleLogDiv").html("Let the battle begin!");
 }
 
 // Shake effect from https://jsfiddle.net/macloo/g39k3h3e/
@@ -188,6 +191,8 @@ function enemyAttack () {
     enemyOneAttack(null, function() {
         enemyTwoAttack(null, function() {
             enemyThreeAttack(null, function() {
+                round++;
+                $("#mainHeader").html("Round "+round); 
             })
         })
     })
@@ -205,12 +210,16 @@ $("#musicButton").click(function () {
     if (musicPlaying) {
         backgroundMusic.pause();
         musicPlaying = false;
-        $("#musicButton").html('Music off');
+        $("#musicButton").html('Music: off');
     } else {
         backgroundMusic.play();
         musicPlaying = true;
-        $("#musicButton").html('Music on');
+        $("#musicButton").html('Music: on');
     }
+})
+
+$("#resetButton").click(function() {
+    initialiseGame();
 })
 
 // *** target selection ***
