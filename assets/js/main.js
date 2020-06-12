@@ -2,35 +2,11 @@ var readyToSelectTarget = false;
 var battleLogDiv = document.querySelector('#battleLogDiv');
 var musicPlaying = false;
 
-var enemyOne = {
-    race:"Orc",
-    HP: 20,
-    attack: 5,
-    alive: true,
-    enemyImage: "./assets/images/orc.jpg"
-}
+var enemyOne;
+var enemyTwo;
+var enemyThree;
+var hero;
 
-var enemyTwo = {
-    race:"Troll",
-    HP: 40,
-    attack: 15,
-    alive: true,
-    enemyImage: "./assets/images/lotrtroll.jpg"
-}
-
-var enemyThree = {
-    race:"Uruk-Hai",
-    HP: 30,
-    attack: 10,
-    alive: true,
-    enemyImage: "./assets/images/urukhai.jpg"
-}
-
-var hero = {
-    HP: 250,
-    attack: 20,
-    heroImage: "./assets/images/aragorn.jpg"
-}
 var aragornHitSound = new Audio('./assets/sound/aragornattack.mp3');
 var enemyHitSound = new Audio('./assets/sound/enemyattack.mp3');
 var backgroundMusic = new Audio('./assets/sound/backgroundmusic.mp3');
@@ -38,6 +14,36 @@ var backgroundMusic = new Audio('./assets/sound/backgroundmusic.mp3');
 initialiseGame();
 
 function initialiseGame() {
+    enemyOne = {
+        race:"Orc",
+        HP: 20,
+        attack: 5,
+        alive: true,
+        enemyImage: "./assets/images/orc.jpg"
+    }
+
+    enemyTwo = {
+        race:"Troll",
+        HP: 40,
+        attack: 15,
+        alive: true,
+        enemyImage: "./assets/images/lotrtroll.jpg"
+    }
+    
+    enemyThree = {
+        race:"Uruk-Hai",
+        HP: 30,
+        attack: 10,
+        alive: true,
+        enemyImage: "./assets/images/urukhai.jpg"
+    }
+    
+    hero = {
+        HP: 250,
+        attack: 20,
+        heroImage: "./assets/images/aragorn.jpg"
+    }
+
     $("#enemyOne").html(enemyOne.race);
     $("#enemyOneAttack").html("Attack<br>" + enemyOne.attack);
     $("#enemyOneHP").html("HP<br>" + enemyOne.HP);
