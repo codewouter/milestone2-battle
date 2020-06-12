@@ -69,6 +69,14 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 }
 /* css targeting middleSection*/
 
+.resetButton {
+    background-image: url("../images/leaf.jpg");
+}
+
+.attackButton {
+    background-image: url("../images/blood.jpg");
+}
+
 .musicbutton {
     background-image: url("../images/darkwood.jpg");
 }
