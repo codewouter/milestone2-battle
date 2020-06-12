@@ -89,12 +89,15 @@ function checkDeathEnemy(enemy) {
             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
             if (enemy == enemyOne) {
                 $("#enemyOneImage").attr("src", "./assets/images/skull.jpg");
+                $("#enemyOne").html("DEAD");                
             }
             if (enemy == enemyTwo) {
                 $("#enemyTwoImage").attr("src", "./assets/images/skull.jpg");
+                $("#enemyTwo").html("DEAD");   
             }
             if (enemy == enemyThree) {
                 $("#enemyThreeImage").attr("src", "./assets/images/skull.jpg");
+                $("#enemyThree").html("DEAD");   
             } 
         }
     }
