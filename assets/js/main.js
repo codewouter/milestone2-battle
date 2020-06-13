@@ -176,7 +176,7 @@ function heroAttack (target) {
         shake($('#enemyOneImage'));
         aragornHitSound.play();
         enemyOne.HP -= hero.attack;
-        $("#enemyOneHP").html("HP" + enemyOne.HP);
+        $("#enemyOneHP").html("HP<br>" + enemyOne.HP);
         $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyOne);
@@ -184,7 +184,7 @@ function heroAttack (target) {
         shake($('#enemyTwoImage'));
         aragornHitSound.play();
         enemyTwo.HP -= hero.attack;
-        $("#enemyTwoHP").html("HP" + enemyTwo.HP);
+        $("#enemyTwoHP").html("HP<br>" + enemyTwo.HP);
         $("#battleLogDiv").append("You hit " + enemyTwo.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyTwo);
@@ -192,7 +192,7 @@ function heroAttack (target) {
         shake($('#enemyThreeImage'));
         aragornHitSound.play();
         enemyThree.HP -= hero.attack;
-        $("#enemyThreeHP").html("HP" + enemyThree.HP);
+        $("#enemyThreeHP").html("HP<br>" + enemyThree.HP);
         $("#battleLogDiv").append("You hit " + enemyThree.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyThree);
@@ -208,7 +208,7 @@ function enemyAttack (enemy, callback) {
         hero.HP -= enemy.attack;
         $("#battleLogDiv").append(enemy.race + " hits you for " + enemy.attack+ "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
-        $("#heroHP").html("HP: " + hero.HP);
+        $("#heroHP").html("HP<br>" + hero.HP);
         setTimeout(function() { callback(); }, 1500)
     } else {
         callback();
