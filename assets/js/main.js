@@ -28,7 +28,7 @@ function initialiseGame() {
     round = 1;
     enemyOne = {
         race:"Orc",
-        HP: 1,
+        HP: 20,
         attack: 5,
         alive: true,
         enemyImage: "./assets/images/orc.jpg"
@@ -36,23 +36,23 @@ function initialiseGame() {
 
     enemyTwo = {
         race:"Troll",
-        HP: 1,
-        attack: 15,
+        HP: 50,
+        attack: 20,
         alive: true,
         enemyImage: "./assets/images/lotrtroll.jpg"
     }
     
     enemyThree = {
         race:"Uruk-Hai",
-        HP: 1,
-        attack: 10,
+        HP: 40,
+        attack: 30,
         alive: true,
         enemyImage: "./assets/images/urukhai.jpg"
     }
     
     hero = {
-        HP: 1,
-        attack: 20,
+        HP: 150,
+        attack: 25,
         heroImage: "./assets/images/aragorn.jpg",
         heroImageWin: "./assets/images/aragornwin.png",
         heroImageLose: "./assets/images/aragorndeath.jpg"
