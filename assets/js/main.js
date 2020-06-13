@@ -15,10 +15,20 @@ var backgroundMusic = new Audio('./assets/sound/backgroundmusic.mp3');
 initialiseGame();
 
 function initialiseGame() {
+    // ********** Buttons **********
+    // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
+    // When the game restarts all buttons need to be turned off to prevent double click events.
+    $("#musicButton").off("click");
+    $("#resetButton").off("click");
+    $("#attackButton").off("click");
+
+    $("#musicButton").on("click", toggleMusic);
+    $("#resetButton").on("click", initialiseGame);
+    $("#attackButton").on("click", heroSelectTarget);
     round = 1;
     enemyOne = {
         race:"Orc",
-        HP: 20,
+        HP: 1,
         attack: 5,
         alive: true,
         enemyImage: "./assets/images/orc.jpg"
@@ -26,7 +36,7 @@ function initialiseGame() {
 
     enemyTwo = {
         race:"Troll",
-        HP: 40,
+        HP: 1,
         attack: 15,
         alive: true,
         enemyImage: "./assets/images/lotrtroll.jpg"
@@ -34,7 +44,7 @@ function initialiseGame() {
     
     enemyThree = {
         race:"Uruk-Hai",
-        HP: 30,
+        HP: 1,
         attack: 10,
         alive: true,
         enemyImage: "./assets/images/urukhai.jpg"
@@ -43,7 +53,8 @@ function initialiseGame() {
     hero = {
         HP: 250,
         attack: 20,
-        heroImage: "./assets/images/aragorn.jpg"
+        heroImage: "./assets/images/aragorn.jpg",
+        heroImageWin: "./assets/images/aragornwin.png"
     }
 
     $("#mainHeader").html("Round "+round);
@@ -102,7 +113,11 @@ function toggleMusic() {
 
  function gameWon() {
      console.log("WIN!!");
- }
+    $("#battleLogDiv").html("You have won!<br>Press the reset button to play again.<br>");
+    $("#heroImage").attr("src", hero.heroImageWin);
+    $("#attackButton").off("click");
+    $("#resetButton").on("click", initialiseGame);
+}
  
 
 // function to determine if enemy has died. If hp is 0 or lower, it was killed. Replacing the image and putting out a message to the battlelog
@@ -125,12 +140,18 @@ function checkDeathEnemy(enemy) {
                 $("#enemyThreeImage").attr("src", "./assets/images/skull.jpg");
                 $("#enemyThree").html("DEAD");   
             }
-            if ((enemyOne.alive) || (enemyTwo.alive) || (enemyThree.alive)) {
-                console.log("at least one enemy alive");
-            } else {
-                gameWon();
-            }
         }
+    }
+}
+
+function CheckWin() {
+    if ((enemyOne.alive) || (enemyTwo.alive) || (enemyThree.alive)) {
+        round++;
+        $("#mainHeader").html("Round "+round); 
+        $("#resetButton").on("click", initialiseGame);
+        $("#attackButton").on("click", heroSelectTarget);        
+    } else {
+        gameWon();
     }
 }
 // *** attack parser ***
@@ -185,20 +206,13 @@ function enemyAttacking () {
     enemyAttack(enemyOne, function() {
         enemyAttack(enemyTwo, function() {
             enemyAttack(enemyThree, function() {
-                round++;
-                $("#mainHeader").html("Round "+round); 
-                $("#resetButton").on("click", initialiseGame);
-                $("#attackButton").on("click", heroSelectTarget);
+                CheckWin();
             })
         })
     })
 }
 
-// ********** Buttons **********
-// attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
-$("#attackButton").on("click", heroSelectTarget);
-$("#musicButton").on("click", toggleMusic);
-$("#resetButton").on("click", initialiseGame);
+
 
 // *** target selection ***
 // After attackbutton has been clicked, a target must be selected. If the attackbutton has not been clicked yet,
@@ -207,7 +221,6 @@ $("#resetButton").on("click", initialiseGame);
 function heroSelectTarget() {
     $("#resetButton").off("click");
     $("#attackButton").off("click");
-    readyToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
     battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
     enableTargetting();
