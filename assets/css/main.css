@@ -27,12 +27,13 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 
 /* css targeting uppersection parts */
 .mainHeader {
+    background-image: url("../images/battlelog.jpg");
     display: flex;
     font-family: 'Lucida Sans', sans-serif;
     font-size: 3vh;
     font-style: italic;
+    font-weight: bolder;
     height: 15%;
-    background-color: white;
     align-items:center;
     justify-content:center;
 }
@@ -79,14 +80,20 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 
 .resetButton {
     background-image: url("../images/leaf.jpg");
+    min-width: 20%;
+    padding: 2% 0;
 }
 
 .attackButton {
     background-image: url("../images/blood.jpg");
+    min-width: 20%;
+    padding: 2% 0;
 }
 
 .musicbutton {
     background-image: url("../images/darkwood.jpg");
+    min-width: 20%;
+    padding: 2% 0;
 }
 
 /* css targeting lowerSection*/
@@ -141,7 +148,7 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 /* in the upperSection, the enemy box height needs to be halved (to 40%) because the third enemy will be below the other 2. In bigger viewports (from 'sm'on up, it can be the maximum 80% */
 @media (min-width: 540px) {
     .enemyBox {
-        max-height: 80%;
+        max-height: 75%;
     }
     .heroStatBox, .heroImageBox, .battleLog{
         height: 100%;
