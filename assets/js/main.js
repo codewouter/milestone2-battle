@@ -224,6 +224,8 @@ function enemyAttacking () {
             enemyAttack(enemyThree, function() {
                 checkWin();
                 checkLose();
+                $("#battleLogDiv").append("Next round!<br>");
+                battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight; 
             })
         })
     })

@@ -67,7 +67,7 @@
     background-image: url('../images/wood.jpg');
     display: flex;
     font-family: 'Poppins', sans-serif;
-    font-size: 4.5vmin;
+    font-size: 4vmin;
     font-weight: bolder;
     align-items:center;
     justify-content:center;
@@ -138,8 +138,9 @@
     background-image: url("../images/battlelog.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    /* background-position: left; */
     font-family: 'Poppins', sans-serif;
-    font-size: 3vmin;
+    font-size: 3.5vmin;
     font-weight: bold;
     text-align: center;
     height: 40%;
