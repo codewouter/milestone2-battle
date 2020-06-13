@@ -166,6 +166,7 @@ function enemyAttacking () {
                 round++;
                 $("#mainHeader").html("Round "+round); 
                 $("#resetButton").on("click", initialiseGame);
+                $("#attackButton").on("click", heroSelectTarget);
             })
         })
     })
@@ -197,6 +198,7 @@ $("#resetButton").on("click", initialiseGame);
 // After that a check is made if the enemy is still alive, if it's dead, a message will appear in the battlelog
 function heroSelectTarget() {
     $("#resetButton").off("click");
+    $("#attackButton").off("click");
     readyToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
     battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
