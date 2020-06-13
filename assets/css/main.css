@@ -81,19 +81,22 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 .resetButton {
     background-image: url("../images/leaf.jpg");
     min-width: 20%;
-    padding: 2% 0;
+    font-size: 4.5vmin;
+    color: #FFFFF4;
 }
 
 .attackButton {
     background-image: url("../images/blood.jpg");
     min-width: 20%;
-    padding: 2% 0;
+    font-size: 4.5vmin;
+    color: #FFFFF4;
 }
 
-.musicbutton {
+.musicButton {
     background-image: url("../images/darkwood.jpg");
     min-width: 20%;
-    padding: 2% 0;
+    font-size: 4.5vmin;
+    color: #FFFFF4;
 }
 
 /* css targeting lowerSection*/
@@ -150,8 +153,8 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
     .enemyBox {
         max-height: 75%;
     }
-    .heroStatBox, .heroImageBox, .battleLog{
-        height: 100%;
+    .heroStatBox, .heroImageBox, .battleLog {
+        height: 100%;   
     }
 }
 
