@@ -165,6 +165,7 @@ function enemyAttacking () {
             enemyAttack(enemyThree, function() {
                 round++;
                 $("#mainHeader").html("Round "+round); 
+                $("#resetButton").on("click", initialiseGame);
             })
         })
     })
@@ -172,11 +173,9 @@ function enemyAttacking () {
 
 // ********** Buttons **********
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
-$("#attackButton").click(function() {
-    readyToSelectTarget = true;
-    $("#battleLogDiv").append("Select target to attack!<br>");
-    battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
-})
+$("#attackButton").on("click", heroSelectTarget);
+
+
 
 $("#musicButton").click(function () {
     if (musicPlaying) {
@@ -190,14 +189,19 @@ $("#musicButton").click(function () {
     }
 })
 
-$("#resetButton").click(function() {
-    initialiseGame();
-})
+$("#resetButton").on("click", initialiseGame);
 
 // *** target selection ***
 // After attackbutton has been clicked, a target must be selected. If the attackbutton has not been clicked yet,
 //  a message is asking the player to in the battlelog.
 // After that a check is made if the enemy is still alive, if it's dead, a message will appear in the battlelog
+function heroSelectTarget() {
+    $("#resetButton").off("click");
+    readyToSelectTarget = true;
+    $("#battleLogDiv").append("Select target to attack!<br>");
+    battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
+}
+
 $('#enemyOneImage').click(function() {
     if (readyToSelectTarget) {
         if (enemyOne.alive) {
