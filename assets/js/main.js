@@ -126,7 +126,7 @@ function checkDeathEnemy(enemy) {
 // *** attack parser ***
 // Shakes relevant target and calculates damage, outputs a line to Battlelog
 function heroAttack (target) {
-    if (target == 1) {
+    if (target === enemyOne) {
         shake($('#enemyOneImage'));
         aragornHitSound.play();
         enemyOne.HP -= hero.attack;
@@ -134,7 +134,7 @@ function heroAttack (target) {
         $("#battleLogDiv").append("You hit " + enemyOne.race + " for " + hero.attack + "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyOne);
-    } else if (target == 2) {
+    } else if (target === enemyTwo) {
         shake($('#enemyTwoImage'));
         aragornHitSound.play();
         enemyTwo.HP -= hero.attack;
@@ -218,43 +218,10 @@ function disableTargetting() {
 function enemyTargetted(chosenEnemy) {
     target = chosenEnemy;
     if (target.alive) {
+        disableTargetting();
         heroAttack(target);
-    console.log(target.race);
     } else {
-        $("#battleLogDiv").append("Enemy already dead!<br>");
+        $("#battleLogDiv").append("Enemy already dead!<br>Select different target<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
     }
-    disableTargetting();
 }
-
-
-
-// $('#enemyTwoImage').click(function() {
-//     if (readyToSelectTarget) {
-//         if (enemyTwo.alive) {
-//             heroAttack(2);
-//             readyToSelectTarget=false;
-//         } else {
-//             $("#battleLogDiv").append("Enemy already dead!<br>");
-//             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
-//         }
-//     } else { 
-//         $("#battleLogDiv").append("Select attack type!<br>");
-//         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
-//     }
-// })
-
-// $('#enemyThreeImage').click(function() {
-//     if (readyToSelectTarget) {
-//         if (enemyThree.alive) {
-//             heroAttack(3);
-//             readyToSelectTarget=false;
-//         } else {
-//             $("#battleLogDiv").append("Enemy already dead!<br>");
-//             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
-//         }
-//     } else { 
-//         $("#battleLogDiv").append("Select attack type!<br>");
-//         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
-//     }
-// })
