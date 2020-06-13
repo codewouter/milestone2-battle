@@ -59,9 +59,10 @@ function initialiseGame() {
     }
 
     $("#mainHeader").html("Round "+round);
+    
     $("#enemyOne").html(enemyOne.race);
     $("#enemyOneAttack").html("Attack<br>" + enemyOne.attack);
-    $("#enemyOneHP").html("HP<br>" + enemyOne.HP);
+    $("#enemyOneHP").html("HP<br>" + enemyOne.HP + "<br");
     $("#enemyOneImage").attr("src", enemyOne.enemyImage);
 
     $("#enemyTwo").html(enemyTwo.race);
