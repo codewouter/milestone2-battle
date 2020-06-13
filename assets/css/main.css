@@ -1,11 +1,3 @@
-/* general classes */
-
-.boxShadow {
--webkit-box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
--moz-box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
-box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
-}
-
 .mainBody {
     background-image: url("../images/mordorlandscape.jpg");
     background-repeat: no-repeat;
@@ -67,21 +59,21 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 
 .enemyStatIndicator {
     text-shadow:
-        -1px -1px 0 #F8F8FF,  
-        1px -1px 0 #F8F8FF,
-        -1px 1px 0 #F8F8FF,
-        1px 1px 0 #F8F8FF;
+        -0.5px -0.5px 0 rgb(204, 208, 212),  
+        0.5px -0.5px 0 rgb(204, 208, 212),
+        -0.5px 0.5px 0 rgb(204, 208, 212),
+        0.5px 0.5px 0 rgb(204, 208, 212);
     height:40%;
     background-image: url('../images/wood.jpg');
     display: flex;
     font-family: 'Poppins', sans-serif;
-    font-size: 3vmin;
+    font-size: 4.5vmin;
     font-weight: bolder;
     align-items:center;
     justify-content:center;
     text-align: center;
     padding: 0px;
-    border: 1px solid black;
+    border: 0.5px solid black;
 }
 
 /* css targeting middleSection*/
@@ -113,13 +105,13 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
 
 .heroStatIndicator {
     text-shadow:
-       -1px -1px 0 #F8F8FF,  
-         1px -1px 0 #F8F8FF,
-        -1px 1px 0 #F8F8FF,
-        1px 1px 0 #F8F8FF;
+        -0.5px -0.5px 0 rgb(204, 208, 212),  
+        0.5px -0.5px 0 rgb(204, 208, 212),
+        -0.5px 0.5px 0 rgb(204, 208, 212),
+        0.5px 0.5px 0 rgb(204, 208, 212);
     display: flex;
     font-family: 'Poppins', sans-serif;
-    font-size: 4vmin;
+    font-size: 5vmin;
     font-weight: bold;
     align-items: center;
     justify-content:center;
@@ -162,6 +154,13 @@ box-shadow: 5px 5px 5px 0px rgba(51,38,51,1);
     }
     .heroStatBox, .heroImageBox, .battleLog {
         height: 100%;   
+    }
+}
+
+/* on wider viewscreens in portrait mode (like ipad) a slightly smaller font-size is needed. It's the point where the enemies line up in one row instead of two */
+@media (min-width: 768px) {
+    .enemyStatIndicator {
+    font-size: 3vmin;
     }
 }
 
