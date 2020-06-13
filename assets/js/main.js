@@ -162,7 +162,7 @@ function enemyAttack (enemy, callback) {
 function enemyAttacking () {
     enemyAttack(enemyOne, function() {
         enemyAttack(enemyTwo, function() {
-            enemyAttack(enemeyThree, function() {
+            enemyAttack(enemyThree, function() {
                 round++;
                 $("#mainHeader").html("Round "+round); 
             })
