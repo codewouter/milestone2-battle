@@ -51,10 +51,11 @@ function initialiseGame() {
     }
     
     hero = {
-        HP: 250,
+        HP: 1,
         attack: 20,
         heroImage: "./assets/images/aragorn.jpg",
-        heroImageWin: "./assets/images/aragornwin.png"
+        heroImageWin: "./assets/images/aragornwin.png",
+        heroImageLose: "./assets/images/aragorndeath.jpg"
     }
 
     $("#mainHeader").html("Round "+round);
@@ -112,11 +113,18 @@ function toggleMusic() {
 }
 
  function gameWon() {
-     console.log("WIN!!");
     $("#battleLogDiv").html("You have won!<br>Press the reset button to play again.<br>");
     $("#heroImage").attr("src", hero.heroImageWin);
     $("#attackButton").off("click");
     $("#resetButton").on("click", initialiseGame);
+}
+
+function gameLost() {
+    $("#battleLogDiv").html("You have died!<br>Press the reset button to play again.<br>");
+    $("#heroImage").attr("src", hero.heroImageLose);
+    $("#attackButton").off("click");
+    $("#resetButton").on("click", initialiseGame);
+
 }
  
 
@@ -144,7 +152,7 @@ function checkDeathEnemy(enemy) {
     }
 }
 
-function CheckWin() {
+function checkWin() {
     if ((enemyOne.alive) || (enemyTwo.alive) || (enemyThree.alive)) {
         round++;
         $("#mainHeader").html("Round "+round); 
@@ -154,6 +162,13 @@ function CheckWin() {
         gameWon();
     }
 }
+
+function checkLose() {
+    if (hero.HP <= 0) {
+        gameLost();
+    } 
+}
+
 // *** attack parser ***
 // Shakes relevant target and calculates damage, outputs a line to Battlelog
 function heroAttack (target) {
@@ -206,7 +221,8 @@ function enemyAttacking () {
     enemyAttack(enemyOne, function() {
         enemyAttack(enemyTwo, function() {
             enemyAttack(enemyThree, function() {
-                CheckWin();
+                checkWin();
+                checkLose();
             })
         })
     })
