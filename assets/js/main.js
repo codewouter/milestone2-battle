@@ -100,6 +100,11 @@ function toggleMusic() {
     }
 }
 
+ function gameWon() {
+     console.log("WIN!!");
+ }
+ 
+
 // function to determine if enemy has died. If hp is 0 or lower, it was killed. Replacing the image and putting out a message to the battlelog
 // if the enemy was already dead (in case it was not initialized), nothing happens.
 function checkDeathEnemy(enemy) {
@@ -119,7 +124,12 @@ function checkDeathEnemy(enemy) {
             if (enemy == enemyThree) {
                 $("#enemyThreeImage").attr("src", "./assets/images/skull.jpg");
                 $("#enemyThree").html("DEAD");   
-            } 
+            }
+            if ((enemyOne.alive) || (enemyTwo.alive) || (enemyThree.alive)) {
+                console.log("at least one enemy alive");
+            } else {
+                gameWon();
+            }
         }
     }
 }
