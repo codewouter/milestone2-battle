@@ -139,15 +139,16 @@ function heroAttack (target) {
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
         checkDeathEnemy(enemyThree);
     }
-    setTimeout(enemyAttack, 1200); // after hero attack is done, the enemies attack
+    setTimeout(enemyAttacking, 1500); // after hero attack is done, the enemies attack
 }
 
-function enemyOneAttack (x, callback) {
-    if (enemyOne.alive) {
+function enemyAttack (enemy, callback) {
+
+    if (enemy.alive) {
         shake($('#heroImage'))
         enemyHitSound.play();
-        hero.HP -= enemyOne.attack;
-        $("#battleLogDiv").append(enemyOne.race + " hits you for " + enemyOne.attack+ "!<br>");
+        hero.HP -= enemy.attack;
+        $("#battleLogDiv").append(enemy.race + " hits you for " + enemy.attack+ "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
         $("#heroHP").html("HP: " + hero.HP);
         setTimeout(function() { callback(); }, 1200)
@@ -156,41 +157,12 @@ function enemyOneAttack (x, callback) {
     }
 }
 
-function enemyTwoAttack (x, callback) {
-    if (enemyTwo.alive) {
-        shake($('#heroImage'))
-        enemyHitSound.play();
-        hero.HP -= enemyTwo.attack;
-        $("#battleLogDiv").append(enemyTwo.race + " hits you for " + enemyTwo.attack + "!<br>");
-        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;    
-        $("#heroHP").html("HP: " + hero.HP);
-        setTimeout(function() { callback(); }, 1200)
-    } else {
-        callback();
-    }
-}
-
-function enemyThreeAttack (x, callback) {
-    if (enemyThree.alive) {
-        shake($('#heroImage'))
-        enemyHitSound.play();
-        hero.HP -= enemyThree.attack;
-        $("#battleLogDiv").append(enemyThree.race + " hits you for " + enemyThree.attack + "!<br>");
-        battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;      
-        $("#heroHP").html("HP: " + hero.HP);
-        callback();
-    } else {
-        callback();
-    }
-    
-}
-
 //Function with the callbacks in the enemyOneAttack(and two and three) is adapted from https://stackoverflow.com/questions/5187968/how-should-i-call-3-functions-in-order-to-execute-them-one-after-the-other
 // Timouts I got from https://stackoverflow.com/questions/22690781/javascript-callback-timeout 
-function enemyAttack () {
-    enemyOneAttack(null, function() {
-        enemyTwoAttack(null, function() {
-            enemyThreeAttack(null, function() {
+function enemyAttacking () {
+    enemyAttack(enemyOne, function() {
+        enemyAttack(enemyTwo, function() {
+            enemyAttack(enemeyThree, function() {
                 round++;
                 $("#mainHeader").html("Round "+round); 
             })
@@ -200,7 +172,6 @@ function enemyAttack () {
 
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").click(function() {
-    console.log('attack clicked');
     readyToSelectTarget = true;
     $("#battleLogDiv").append("Select target to attack!<br>");
     battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
