@@ -151,13 +151,13 @@ function enemyAttack (enemy, callback) {
         $("#battleLogDiv").append(enemy.race + " hits you for " + enemy.attack+ "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
         $("#heroHP").html("HP: " + hero.HP);
-        setTimeout(function() { callback(); }, 1200)
+        setTimeout(function() { callback(); }, 1500)
     } else {
         callback();
     }
 }
 
-//Function with the callbacks in the enemyOneAttack(and two and three) is adapted from https://stackoverflow.com/questions/5187968/how-should-i-call-3-functions-in-order-to-execute-them-one-after-the-other
+//Function with the callbacks in the enemyAttack function is adapted from https://stackoverflow.com/questions/5187968/how-should-i-call-3-functions-in-order-to-execute-them-one-after-the-other
 // Timouts I got from https://stackoverflow.com/questions/22690781/javascript-callback-timeout 
 function enemyAttacking () {
     enemyAttack(enemyOne, function() {
@@ -170,6 +170,7 @@ function enemyAttacking () {
     })
 }
 
+// ********** Buttons **********
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").click(function() {
     readyToSelectTarget = true;
