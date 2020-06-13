@@ -88,6 +88,18 @@ function shake(thing) {
   }, interval);
 }
 
+function toggleMusic() {
+    if (musicPlaying) {
+        backgroundMusic.pause();
+        musicPlaying = false;
+        $("#musicButton").html('Music: off');
+    } else {
+        backgroundMusic.play();
+        musicPlaying = true;
+        $("#musicButton").html('Music: on');
+    }
+}
+
 // function to determine if enemy has died. If hp is 0 or lower, it was killed. Replacing the image and putting out a message to the battlelog
 // if the enemy was already dead (in case it was not initialized), nothing happens.
 function checkDeathEnemy(enemy) {
@@ -175,21 +187,7 @@ function enemyAttacking () {
 // ********** Buttons **********
 // attack button needs to be chosen/triggered first, placeholderto allow future alternate attacks
 $("#attackButton").on("click", heroSelectTarget);
-
-
-
-$("#musicButton").click(function () {
-    if (musicPlaying) {
-        backgroundMusic.pause();
-        musicPlaying = false;
-        $("#musicButton").html('Music: off');
-    } else {
-        backgroundMusic.play();
-        musicPlaying = true;
-        $("#musicButton").html('Music: on');
-    }
-})
-
+$("#musicButton").on("click", toggleMusic);
 $("#resetButton").on("click", initialiseGame);
 
 // *** target selection ***
