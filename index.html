@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Battle!</title>
+        <link rel="shortcut icon" href="./assets/images/faviconswords.jpg" type="image/png" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" type="text/css" />    
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Galada" rel="stylesheet">
@@ -18,13 +19,13 @@
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
                             <div class="col-8 h-100"> <!-- selection + enemyPic, the SelectBox is for possible future implementation, for now just the race from the objectfile-->
-                                <div id="enemyOne" class="selectBox"></div>
+                                <div id="selectBoxOne" class="selectBox"></div>
                                 <div class="enemyImageHolder">
                                     <img id="enemyOneImage" class="enemyImage rounded-circle" alt="">
                                 </div>
                             </div>
                             <div class="col-4 h-100"><!-- stats box -->
-                                <div class="row h-100">
+                                <div class="row h-100"><!-- couldn't get the statBoxes to properly align so I filled them up with filler divs -->
                                     <div class="col-12 fillerStatBox"></div>
                                     <div id="enemyOneAttack" class="col-12 enemyStatIndicator"></div>
                                     <div id="enemyOneHP" class="col-12 enemyStatIndicator"></div>
@@ -36,13 +37,13 @@
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
                             <div class="col-8 h-100"> <!-- selection + enemyPic-->
-                                <div id="enemyTwo" class="selectBox"></div>
+                                <div id="selectBoxTwo" class="selectBox"></div>
                                 <div class="enemyImageHolder">
                                     <img id="enemyTwoImage" class="enemyImage rounded-circle" alt="">
                                 </div>
                             </div>
                             <div class="col-4 h-100"><!-- stats box -->
-                                <div class="row h-100">
+                                <div class="row h-100"><!-- couldn't get the statBoxes to properly align so I filled them up with filler divs -->
                                     <div class="col-12 fillerStatBox"></div>
                                     <div id="enemyTwoAttack" class="col-12 enemyStatIndicator"></div>
                                     <div id="enemyTwoHP" class="col-12 enemyStatIndicator"></div>
@@ -54,13 +55,13 @@
                     <div class="col-6 col-sm-4 enemyBox"> <!-- block of enemyPic (incl selection) + stats box -->
                         <div class="row h-100">
                             <div class="col-8 h-100"> <!-- selection + enemyPic-->
-                                <div id="enemyThree" class="selectBox"></div>
+                                <div id="selectBoxThree" class="selectBox"></div>
                                 <div class="enemyImageHolder">
                                     <img id="enemyThreeImage" class="enemyImage rounded-circle" alt="">
                                 </div>
                             </div>
                              <div class="col-4 h-100"><!-- stats box -->
-                                <div class="row h-100">
+                                <div class="row h-100"><!-- couldn't get the statBoxes to properly align so I filled them up with filler divs -->
                                     <div class="col-12 fillerStatBox"></div>
                                     <div id="enemyThreeAttack" class="col-12 enemyStatIndicator"></div>
                                     <div id="enemyThreeHP" class="col-12 enemyStatIndicator"></div>
@@ -74,7 +75,7 @@
             <!-- Middlesection contain the attack button(s) and give a bit of air between the hero and enemies. Takes up 20% of screenheight -->
             <section class="middleSection">
                 <div class="row justify-content-around align-items-center h-100">
-                    <!-- Stock bootstrap danger button -->
+                    <!-- Stock bootstrap buttons with some styling -->
                     <button id="resetButton" type="button" class="btn btn-dark resetButton">Reset</button>
                     <button id="attackButton" type="button" class="btn btn-danger attackButton">Attack!</button>
                     <button id="musicButton" type="button" class="btn btn-dark musicButton">Music: off</button>
@@ -83,7 +84,7 @@
             <!-- Lowersection containing the hero statistics, avatar and battlelog. Takes up 40% of screenheight -->
             <section class="lowerSection">
                 <div class="row h-100">
-                    <div class="col-6 col-sm-3 heroStatBox">
+                    <div class="col-6 col-sm-3 heroStatBox"><!-- couldn't get the statBoxes to properly align so I filled them up with filler divs -->
                         <div class="col-12 fillerStatBox"></div>
                         <div id="heroAttack" class="col-12 heroStatIndicator align-self-center">HP: 10</div>
                         <div id="heroHP" class="col-12 heroStatIndicator align-self-center">Att: 15</div>
@@ -92,7 +93,7 @@
                     <div class="col-6 col-sm-3 heroImageBox">
                         <img id="heroImage" class="heroImage rounded-circle" alt="">
                     </div>  
-                    <div id="battleLogDiv" class="col-12 col-sm-6 battleLog">
+                    <div id="battleLogDiv" class="col-12 col-sm-6 battleLog"> <!-- message box which reveives input from various js functions-->
                     </div>                      
                 </div>
             </section>

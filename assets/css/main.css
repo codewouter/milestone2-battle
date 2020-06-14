@@ -4,6 +4,8 @@
     background-size: cover;
 }
 
+
+/* the page contains 3 sections taking up respectively 40-20-40 percent of the screen*/
 /* main sections */
 .upperSection {
     height: 40vh;
@@ -16,20 +18,28 @@
 }
 
 /* css targeting uppersection parts */
+/* just using bootstrap grid mainly to display the header containing the round.*/
 .mainHeader {
     background-image: url("../images/battlelog.jpg");
-    display: flex;
+    height: 20%;
     font-family: 'Lucida Sans', sans-serif;
-    font-size: 3vh;
+    font-size: 4vh;
     font-style: italic;
     font-weight: bolder;
-    height: 15%;
+    display: flex;
     align-items:center;
     justify-content:center;
 }
+
+/* On small devices like phones, there need to be another row for the third enemy. Using the enemybox(which contains the selectBox, image and statbox) set to 40%, the total height would add up to 100% of the uppersection. 20% main header, 40% first enemyrow, 40% second enemy row. (I am using 35% instead of 40% to keep the images from hugging the selectBox. In the same vein the version where the enemies are on one row (activated by a mediaquery), the row is 75% (not 80) and the header still 20% */
 .enemyBox {
-    max-height: 40%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
+/* the enemy box contains two divs, one for the selectbox and enemyImageHolder, the other for the enemystatbox. The first div is split in two rows: the selectbox (20%) and the imageholder (80%) */
 .selectBox {
     display: flex;
     font-family: 'Poppins', sans-serif;
@@ -44,19 +54,28 @@
 }
 .enemyImageHolder {
     height: 80%;
-    width: 100%;
+    max-width: 90%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
     text-align: center;
+    margin: auto;
 }
 
 .enemyImage {
     max-width: 100%;
-    max-height: 95%;
-    position:relative;
+    max-height: 90%;
+    margin: auto;
+    text-align: center;
+    position:relative; /*mandatory to be able to let the javascript shake function work*/
 }
+
+/* as explained in the index.html, the filler is used to vertically align the statboxes */
 .fillerStatBox {
     height: 10%;
 }
 
+/* this class styles the two statboxes for attack value and HP respectively */
 .enemyStatIndicator {
     text-shadow:
         -0.5px -0.5px 0 rgb(204, 208, 212),  
@@ -99,10 +118,12 @@
 }
 
 /* css targeting lowerSection*/
+/* The lower section on small viewports has the heroStats and heroImage on one row (60% height) and the battlelog on the next row (40% height), these values are set to 100% on wider viewports (through mediaqueries) to have them all on one row*/
 .heroStatBox {
     height: 60%;
 }
 
+/* the two boxes containing the hero stats (attack/HP) are aligned in the same way as the enemy's */
 .heroStatIndicator {
     text-shadow:
         -0.5px -0.5px 0 rgb(204, 208, 212),  
@@ -138,7 +159,7 @@
     background-image: url("../images/battlelog.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position: left; */
+    background-position: right top;
     font-family: 'Poppins', sans-serif;
     font-size: 3.5vmin;
     font-weight: bold;
@@ -148,10 +169,10 @@
 }
 
 /* media queries */
-/* in the upperSection, the enemy box height needs to be halved (to 40%) because the third enemy will be below the other 2. In bigger viewports (from 'sm'on up, it can be the maximum 80% */
+/* in the upperSection, the enemy box height needs to be halved (to 40%) because the third enemy will be below the other 2. This media query sets it back to one common row, see the relevant classes for more explanations */
 @media (min-width: 540px) {
     .enemyBox {
-        max-height: 75%;
+        height: 75%;
     }
     .heroStatBox, .heroImageBox, .battleLog {
         height: 100%;   
