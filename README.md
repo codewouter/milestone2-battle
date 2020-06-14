@@ -6,18 +6,28 @@ The milestone 2 project will be a webpage to showcase content I learned to devel
 
 Since I have been a gamer for most of my life, I intended to build a simple game in a fantasy setting. Since I am under strict time constraints I need to work fast, but I also want to create something nice and appealing. So it is a bit of a balancing act. To have it running along smoothly I will be using the MoSCoW technique to make sure I am not adding to much unnecessary content. More information on this technique can be found [here](https://en.wikipedia.org/wiki/MoSCoW_method#:~:text=The%20MoSCoW%20method%20is%20a,MoSCoW%20prioritization%20or%20MoSCoW%20analysis).
 
+The technique worked out very well as I was able to keep focussing on the things that needed to be done instead of expanding a lot and finishing up the core concepts. 
+In the end I was able to finish all 'Must haves'.  Of the 'Should haves' I was able to implement some of the features: the round number, the battle log and the reset button. Otherwise I had no time to add in anything else. As an added bonus I put in a soundtrack and a way to stop/start it, also a few sound effects. I decided to dedicate some time into it after my first mentor call who suggested it. Glas I did as it really improves the experience.
+In the end it took couple of days more than I intended. This was mainly because I needed a lot more time to have it all look nice enough (should have stopped earlier, but, you know). Also, a lot of (fun) time went into making the game less glitchy. I espcially like the enabling/disabling of buttons or targets to prevent someone clicking on all kinds while the attack round is running or when the game ends.
+When I started this project I was hellbend on using objects because I love the paradigm, I'm glad I managed to use them as much as I have.
+
+All in all I had a lot of fun (and some hairtearing moments, especially with css). What I am taking away from this is that I really like javascript and I have less feeling for css.
+
+
 ## UX
  
 User stories:
 
 As a fantasy fan, I want to see a fantasy theme.
 As a rpg gamer, I want to clearly see some rpg statistics.
-As a gamer with a taste for fighting games I want to be able to use different attacks.
+As a gamer with a taste for fighting games I want to be able to use different attacks. (not implemented)
 As a gamer with a taste for fighting games I want to be able to see my attacks do damage and receive it.
-As a gamer I want to be able to create different challenges.
+As a gamer I want to be able to create different challenges. (not implemented)
 As a user I want to be able to play this game on different devices, like a phone, tablet or PC.
 
-This will be a simple fanstasy game with some rpg/fighting mechanics. It should appeal to a certain gamer audience.
+Note: The two user stories that have not been implemented were concious choices due to time constraints. I felt they did not add a lot more to showcase significant extra skill.
+
+This will be a simple fantasy game with some rpg/fighting mechanics. It should appeal to a certain gamer audience.
 As mentioned in the introduction, this is the priority list for the project following MoSCoW:
 Must have:
 * Fantasy theme
@@ -28,7 +38,6 @@ Must have:
 * Win or lose condition and a way to display it
 * Animation of a hit or miss on the enemy/hero
 
-
 Should have:
 * Choice of number of enemies.
 * Second 'special' attack (multiattack)
@@ -36,7 +45,6 @@ Should have:
 * Log of last few events (attacks, misses, deaths, etc)
 * Reset button to start over.
 * Hit chance.
-
 
 Could have:
 * Selection of different enemy types
@@ -51,15 +59,30 @@ Will not have, but maybe in future implementation:
 * Equipment and loot drops
 * Too many others too mention.
 
+The design is slightly reminisent of 'card' games like magic, hearthstone and pokemon. The hero and his/her attributes will be at the bottom, the enemies at the top. In between various buttons can be used to interact with the game. The player needs to press the attack button and choose a target, after the hero attack is done, the enemies attack. This proces keeps going until one side is dead or a reset button is clicked.
+
 ### Mockups
 Wireframes can be viewed within the project structure in /mockups/ms2-mockups.pdf. 
 !! Make alternative link through github as an url
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
+As a fantasy fan, I want to see a fantasy theme.
+As a rpg gamer, I want to clearly see some rpg statistics.
+As a gamer with a taste for fighting games I want to be able to use different attacks. (not implemented)
+As a gamer with a taste for fighting games I want to be able to see my attacks do damage and receive it.
+As a gamer I want to be able to create different challenges. (not implemented)
+As a user I want to be able to play this game on different devices, like a phone, tablet or PC.
  
 ### Existing Features
+As a fantasy fan, I want to see a fantasy theme.
+As a rpg gamer, I want to clearly see some rpg statistics.
+As a gamer with a taste for fighting games I want to be able to use different attacks. (not implemented)
+As a gamer with a taste for fighting games I want to be able to see my attacks do damage and receive it.
+As a gamer I want to be able to create different challenges. (not implemented)
+As a user I want to be able to play this game on different devices, like a phone, tablet or PC.
+
+
 - Feature 1 - allows users X to achieve Y, by having them fill out Z
 - ...
 
