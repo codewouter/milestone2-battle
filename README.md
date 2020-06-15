@@ -132,6 +132,8 @@ To accomodate this several features are added to liven things up and make it an 
 * [css tricks Adding Stroke to Web Text](https://css-tricks.com/adding-stroke-to-web-text/)
     * Used to create a slight shadow on the HP and attack values for better readability
 
+* Keeping the scrollbar to the bottom of the battlelog was adapted from https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
+
 ## Testing
 
 #### **All tests have been performed using browsers Google Chrome and Microsoft Edge.**
@@ -144,10 +146,15 @@ To accomodate this several features are added to liven things up and make it an 
     * Ipad (landscape/portrait, using chrome developer tools)
     * General responsive testing with chrome developer tools.
 
-* Win/Lose
-    * Win event is correctly called on death of all enemies, image changes and battlelog is filled correctly
-    * Lose event is correctly called on 0 or negative HP of the hero, image changes and battlelog is filled correctly
-    * When win or lose event is run, nothing can be pressed except the music button and reset button.
+* Main header
+    * Desplays round number and text.
+    * Increments when new round starts
+    * Resets to round 1 at game reset.
+
+* Attack button
+    * Starts a round correctly.
+    * When pressed disables and the target images activate
+    * Stays disabled until the round finishes or the game is reset. 
 
 * Reset button
     * Always disabled except
@@ -166,49 +173,121 @@ To accomodate this several features are added to liven things up and make it an 
     * Active at any point in the game
     * Correctly stops/starts music when pressed.
 
-   
+* Stats
+    * Reset at gamestart, values are imported from object.
+    * When relevant enemy is hit, HP decreases with value of attack. (correct for all HP boxes)
 
-Battlelog 
+* Images
+    * Enemy images are activated and are clickable after attack button have been pressed.
+    * Enemy images are always disabled except when attack button is pressed.
+    * Enemy images disable after a valid target has been pressed.
+    * Dead enemies are not accepted as a target and a message appears in battle log.
+    * Enemy images change to skull when HP is reduced to 0 or lowered
+    * Hero images changes correctly on death.
+    * All enemy and hero images shake on hit.
+
+* Selectbox
+    * Displays name (race) of enemy
+    * Change to 'DEAD' when HP reaches 0 or lower.
+
+* Battlelog
+    * Starts text at top.
+    * Scrolls down after appended text overflows and would be displayed outside (under) the box.
+    * Can be scrolled upward when text is above the box all the way to the beginning.
+    * Displays all text at relevant events
+        * Start of game
+        * Next round
+        * Attack start.
+        * Target Selection
+        * Dead enemy selected
+        * Hits and damage
+        * Death of enemy.
+        * win/lose event
+
+* Sound
+    * Hit sound effect play when a hit is made. Both hero's and enemy's.
+    * Background soundtrack plays/stops when music button is pressed. Buttontext changes accordingly/
+
+* Win/Lose
+    * Win event is correctly called on death of all enemies, image changes and battlelog is filled correctly
+    * Lose event is correctly called on 0 or negative HP of the hero, image changes and battlelog is filled correctly
+    * When win or lose event is run, nothing can be pressed except the music button and reset button.
+
+* The game can be won or lost based on choices of the player. How to do this I will not spoil here.
 
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-
-1. Contact form:
-    1. Go to the "Contact Us" page
-    2. Try to submit the empty form and verify that an error message about the required fields appears
-    3. Try to submit the form with an invalid email address and verify that a relevant error message appears
-    4. Try to submit the form with all inputs valid and verify that a success message appears.
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+### Remaining bugs
+* The button are animated through bootstrap. When they are disabled the animation still shows. Due to timeconstraints I did not debug this, also because the project is not about CSS but JS.
+* In my opinion not a bug but it's debatable. Music will not autoplay. This is due to browser policies like [Chrome's](https://developers.google.com/web/updates/2017/09/autoplay-policy-changes). Since I understand the reasoning behind it that it's annoying to have music played when a webpage is loaded, I did not try to change this and give the user the option to start (and stop) it at will.  
+* Apperently some devices need some time to let the first soundeffect play before the second one plays. If the timeout/pause is too short, the following sound will not be played. This is apperent when two or three enemies attack after each other. On PC a timeout of 1200ms is sufficient, on samsung mobile phones (at least A5 and A7), 1500ms is needed at least.
+* I am not entirely happy with the aligning at the brink of the mediaquery breakpoint (540px) and a portrait orientation. The enemy images get somewhat too small. This is apparent only in IPad portrait viewport. It's not terrible, but not great either. Again due to timeconstraints and the focus of the project I will leave it as is.
 
 ## Deployment
+This project has been deployed through github, it is freely accessable by visiting my repository [here](https://github.com/codewouter/milestone2-battle). One can find the code there and a link to the live [website](https://codewouter.github.io/milestone2-battle/).
+Deployement has been an ongoing process of lots of pushed commits to github. The final product has been deployement off the master branch.
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
-
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
-
-In addition, if it is not obvious, you should also describe how to run your code locally.
+When using gitpod, the site can also be previewed by typing 'python3 -m http.server' in the terminal window and selecting 'make public' in the popup window. Then the option 'Open Preview' should be clicked.
 
 
 ## Credits
 
-### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
-
 ### Media
-- The photos used in this site were obtained from ...
+aragorn.jpg:
+https://www.modernmyths.nl/wp-content/uploads/2018/05/Aragorn.jpg
 
+uruk-hai2.jpg:
+https://www.pinterest.at/pin/631418810230904230/
+
+orc.jpg:
+https://www.theguardian.com/tv-and-radio/2019/dec/20/lord-of-the-rings-must-avoid-face-ism
+
+lotrtroll2.jpg:
+https://nl.pinterest.com/sulicius/
+
+skull.jpg:
+https://www.123rf.com/stock-photo/evil_skull.html?sti=mx86k4qepz9slogwwl|
+
+aragorndeath.jpg:
+https://www.quora.com/Is-Aragorn-wounded-at-any-point-throughout-Lord-of-the-Rings-or-is-he-effectively-untouchable
+
+backgroundmusic.mp3:
+https://downloads.khinsider.com/game-soundtracks/album/lord-of-the-rings-the-fellowship-of-the-ring-howard-shore/01%2520The%2520Prophecy.mp3
+
+aragornattack.mp3 & enemyattack.mp3:
+https://www.zapsplat.com/
+
+leaf.jpg:
+http://bgfons.com/download/4980
+
+blood.jpg:
+https://www.deviantart.com/mirlollipop/art/Lava-Blood-texture-327998615
+
+wood.jpg:
+https://www.texturepalace.com/wood-planks-old-premium-an-free-stock-textures/
+
+battlelog.jpg:
+https://nl.pinterest.com/pin/527273068857789333/
+
+silver.jpg:
+https://www.freepik.com/free-photos-vectors/silver
+
+aragornwin.png:
+https://lotr.fandom.com/wiki/Kings_of_Gondor
+
+mordorlandscape.jpg:
+https://nl.pinterest.com/pin/140456082107391117/
+
+faviconswords.png:
+https://favicon.io/emoji-favicons/crossed-swords/
+
+ 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+* Thanks to the slack community to keep me going.
+* Thanks to my slack study buddy, supermario7
+* Thanks to slack Guru, O-Bim-Wan kenobi, thanks for the time to chat! Didn't need to use your solution in the end, but it was much appreciated!
+* Thanks my mentor Gerard McBride, three very powerful and valuable mentorcalls!
+* Thanks to Jos Bouwman, tester extraordinair.
+* And last but most important, my family for putting up with me. My wife for taking care of so many things, and the kids for just being kids.
+
+
