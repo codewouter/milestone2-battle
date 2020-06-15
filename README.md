@@ -134,6 +134,11 @@ To accomodate this several features are added to liven things up and make it an 
 
 * Keeping the scrollbar to the bottom of the battlelog was adapted from https://stackoverflow.com/questions/40903462/how-to-keep-a-scrollbar-always-bottom
 
+* Validators:
+    * [HTML](https://validator.w3.org/)
+    * [CSS](https://www.w3schools.com/w3css/w3css_validation.asp)
+    * [Javascript](https://esprima.org/demo/validate.html)
+
 ## Testing
 
 #### **All tests have been performed using browsers Google Chrome and Microsoft Edge.**
@@ -215,6 +220,10 @@ To accomodate this several features are added to liven things up and make it an 
 
 * The game can be won or lost based on choices of the player. How to do this I will not spoil here.
 
+### Validation
+* The HTML validator only returned errors on the img elements due to a missing src attribute, since they are loaded by javascript, I ignored this error.
+* The CSS validator returned no errors.
+* The javascript validator returned no erros.
 
 ### Remaining bugs
 * The button are animated through bootstrap. When they are disabled the animation still shows. Due to timeconstraints I did not debug this, also because the project is not about CSS but JS.
@@ -287,7 +296,7 @@ https://favicon.io/emoji-favicons/crossed-swords/
 * Thanks to my slack study buddy, supermario7
 * Thanks to slack Guru, O-Bim-Wan kenobi, thanks for the time to chat! Didn't need to use your solution in the end, but it was much appreciated!
 * Thanks my mentor Gerard McBride, three very powerful and valuable mentorcalls!
-* Thanks to Jos Bouwman, tester extraordinair.
+* Thanks to Jos Bouwman, tester extraordinaire.
 * And last but most important, my family for putting up with me. My wife for taking care of so many things, and the kids for just being kids.
 
 
