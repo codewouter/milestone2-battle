@@ -137,7 +137,7 @@ To accomodate this several features are added to liven things up and make it an 
 * Validators:
     * [HTML](https://validator.w3.org/)
     * [CSS](https://www.w3schools.com/w3css/w3css_validation.asp)
-    * [Javascript](https://esprima.org/demo/validate.html)
+    * [Javascript](https://jshint.com/)
 
 ## Testing
 
@@ -223,7 +223,7 @@ To accomodate this several features are added to liven things up and make it an 
 ### Validation
 * The HTML validator only returned errors on the img elements due to a missing src attribute, since they are loaded by javascript, I ignored this error.
 * The CSS validator returned no errors.
-* The javascript validator returned no erros.
+* The javascript validator returns only errors about undefined variables which are either JQuery selectors, or variables used within functions. The missing semicolons are at places where an embedded function ends.
 
 ### Remaining bugs
 * The button are animated through bootstrap. When they are disabled the animation still shows. Due to timeconstraints I did not debug this, also because the project is not about CSS but JS.
@@ -236,7 +236,6 @@ This project has been deployed through github, it is freely accessable by visiti
 Deployement has been an ongoing process of lots of pushed commits to github. The final product has been deployement off the master branch.
 
 When using gitpod, the site can also be previewed by typing 'python3 -m http.server' in the terminal window and selecting 'make public' in the popup window. Then the option 'Open Preview' should be clicked.
-
 
 ## Credits
 

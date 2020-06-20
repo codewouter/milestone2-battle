@@ -1,5 +1,4 @@
 var round;
-var readyToSelectTarget = false;
 var battleLogDiv = document.querySelector('#battleLogDiv');
 var musicPlaying = false;
 var gameStopped = false;
@@ -42,7 +41,7 @@ function initialiseGame() {
         attack: 5,
         alive: true,
         enemyImage: "./assets/images/orc.jpg"
-    }
+    };
 
     enemyTwo = {
         race:"Troll",
@@ -50,7 +49,7 @@ function initialiseGame() {
         attack: 20,
         alive: true,
         enemyImage: "./assets/images/lotrtroll2.jpg"
-    }
+    };
     
     enemyThree = {
         race:"Uruk-Hai",
@@ -58,7 +57,7 @@ function initialiseGame() {
         attack: 30,
         alive: true,
         enemyImage: "./assets/images/urukhai2.jpg"
-    }
+    };
     
     hero = {
         HP: 150,
@@ -66,7 +65,7 @@ function initialiseGame() {
         heroImage: "./assets/images/aragorn.jpg",
         heroImageWin: "./assets/images/aragornwin.png",
         heroImageLose: "./assets/images/aragorndeath.jpg"
-    }
+    };
 
     // Filling the values in all the placeholders. The html divs are filled with data from the relevant objects or other variables.
     $("#mainHeader").html("Round "+round);
@@ -157,7 +156,7 @@ function checkDeathEnemy(enemy) {
     if (enemy.alive) {
         if (enemy.HP <= 0) {
             enemy.alive = false;
-            $("#battleLogDiv").append("You killed " + enemy.race + "!<br>")
+            $("#battleLogDiv").append("You killed " + enemy.race + "!<br>");
             battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;
             if (enemy == enemyOne) {
                 $("#enemyOneImage").attr("src", "./assets/images/skull.jpg");
@@ -230,13 +229,13 @@ function heroAttack (target) {
 // this function has a callback to make sure all enemies attack in order and the messages, sounds and effects have time to play before the next enemy attacks. The callback is therefore activated with a timeout of 1500ms. This functions tests first if the enemy called is alive, if not nothing happens. If it is alive the functions will shake the hero simulating a hit, play the attacksound. Adjust hero's hp (with the attackvalue of the enemy). The battlelog receive relevant messages and the displayed HP value is adjusted.
 function enemyAttack (enemy, callback) {
     if (enemy.alive) {
-        shake($('#heroImage'))
+        shake($('#heroImage'));
         enemyHitSound.play();
         hero.HP -= enemy.attack;
         $("#battleLogDiv").append(enemy.race + " hits you for " + enemy.attack+ "!<br>");
         battleLogDiv.scrollTop = battleLogDiv.scrollHeight - battleLogDiv.clientHeight;       
         $("#heroHP").html("HP<br>" + hero.HP);
-        setTimeout(function() { callback(); }, 1500)
+        setTimeout(function() { callback(); }, 1500);
     } else {
         callback();
     }
